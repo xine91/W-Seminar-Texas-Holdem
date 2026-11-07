@@ -18,5 +18,10 @@ public record SimulationResult(
     string Phase,             // "Preflop" oder "Flop"
     double ExpectedValue = 0, // Expected Value basierend auf Pot und CallCost
     double Pot = 0,           // Pot-Größe (für EW-Berechnung)
-    double CallCost = 0       // Call-Kosten (für EW-Berechnung)
+    double CallCost = 0,      // Call-Kosten (für EW-Berechnung)
+    string? Board = null,     // bekanntes Board (z. B. "AsKhQd"), sonst null
+    double EquityStdError = 0,        // Standardfehler der Equity
+    double ExpectedValueStdError = 0, // Standardfehler des Call-EW
+    double ExpectedValueRaise = 0,    // EW des Raise (mit Fold Equity)
+    string? OpponentRange = null      // kanonische Gegnerrange (für Filter)
 );
