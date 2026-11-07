@@ -1,0 +1,185 @@
+@page "/scenariomatrix"
+@model W_Seminar.Pages.ScenarioMatrixModel
+@{
+    ViewData["Title"] = "Scenario Matrix";
+}
+
+<div class="container-fluid py-4">
+    <h1>Gespeicherte Szenario-Matrizen</h1>
+    <p class="text-muted">
+        Anzeige der gespeicherten 13×13-Matrizen aus <code>Data/scenario_results.json</code>.
+        Die Filter entsprechen der Auswahl in der EW Matrix.
+    </p>
+
+    <form method="get" class="row g-2 align-items-end mb-3">
+        <div class="col-auto">
+            <label asp-for="SelectedScenario" class="form-label">Szenario</label>
+            <select asp-for="SelectedScenario" class="form-select" onchange="this.form.elements['SelectedRunId'].value=''; this.form.elements['SelectedRange'].value=''; this.form.submit()">
+                <option value="Alle">Alle Szenarien</option>
+                <option value="B">Szenario B – Push/Fold</option>
+                <option value="C">Szenario C – RFI</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <label asp-for="SelectedRunId" class="form-label">Run / Session</label>
+            <select asp-for="SelectedRunId" class="form-select" onchange="this.form.submit()">
+                <option value="">Letzter passender Lauf</option>
+                @foreach (var run in Model.FilteredRecords)
+                {
+                    <option value="@run.RunId">
+                        @run.Scenario – @Model.FormatTimestamp(run.TimestampUtc) – @run.RunId[..Math.Min(8, run.RunId.Length)]
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <label asp-for="SelectedRange" class="form-label">Gegnerrange</label>
+            <select asp-for="SelectedRange" class="form-select" onchange="this.form.elements['SelectedRunId'].value=''; this.form.submit()">
+                <option value="">Alle Ranges</option>
+                @foreach (var range in Model.AvailableRanges)
+                {
+                    <option value="@range">@(range.Length > 40 ? range[..40] + "…" : range)</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <span class="badge bg-secondary">@Model.FilteredRecords.Count gespeicherte Läufe</span>
+        </div>
+    </form>
+
+    @if (Model.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">@Model.ErrorMessage</div>
+    }
+    else if (Model.SelectedRecord == null)
+    {
+        <div class="alert alert-warning">
+            Keine gespeicherten Szenario-Ergebnisse gefunden. Starte zuerst eine Berechnung in
+            <a asp-page="/ScenarioB">Szenario B</a> oder <a asp-page="/ScenarioC">Szenario C</a>.
+        </div>
+    }
+    else if (Model.Cells is { } cells)
+    {
+        var record = Model.SelectedRecord;
+        <div class="card card-body mb-3">
+            <div class="row">
+                <div class="col-md-3"><strong>Szenario:</strong> @record.Scenario</div>
+                <div class="col-md-3"><strong>Run:</strong> <code>@record.RunId</code></div>
+                <div class="col-md-3"><strong>Zeit:</strong> @Model.FormatTimestamp(record.TimestampUtc)</div>
+                <div class="col-md-3"><strong>Iterationen:</strong> @record.Parameters.Iterations</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6"><strong>Gegnerrange:</strong> @record.Parameters.OpponentRange</div>
+                @if (record.Scenario == "B")
+                {
+                    <div class="col-md-6"><strong>S:</strong> @record.Parameters.Stack bb; <strong>P_F:</strong> @record.Parameters.FoldProbability</div>
+                    @if (record.Parameters.SbPushRange != null)
+                    {
+                        <div class="col-md-12 mt-2"><strong>SB Push-Range:</strong> @record.Parameters.SbPushRange</div>
+                    }
+                    @if (record.BestResponseSteps.HasValue)
+                    {
+                        <div class="col-md-12 mt-2"><strong>Best-Response-Schritte:</strong> @record.BestResponseSteps; <strong>Stabilitätskriterium erfüllt:</strong> @(record.Converged == true ? "Ja" : "Nein"); <strong>Stoppgrund:</strong> @record.StopReason</div>
+                        <div class="col-md-12 mt-2"><strong>Anfängliche BB Call-Range:</strong> @record.Parameters.InitialCallRange</div>
+                        <div class="col-md-12 mt-2"><strong>Neue BB Call-Range:</strong> @record.Parameters.ResultCallRange</div>
+                    }
+                }
+                else
+                {
+                    <div class="col-md-6"><strong>x:</strong> @record.Parameters.OpenSize bb; <strong>B:</strong> @record.Parameters.DeadMoney bb; <strong>R:</strong> @record.Parameters.Realization; <strong>P_F:</strong> @record.Parameters.FoldProbability</div>
+                }
+            </div>
+        </div>
+        @if (record.History is { Count: > 0 } history)
+        {
+            <details class="mb-3">
+                <summary>Verlauf von P_F und SB Push-Anteil</summary>
+                <p class="text-muted">Aggregierte Stabilität ist kein Nachweis eines Nash-Gleichgewichts.</p>
+                <table class="table table-sm"><thead><tr><th>Schritt</th><th>P_F</th><th>SB Push-Anteil</th></tr></thead><tbody>
+                @foreach (var entry in history)
+                {
+                    <tr><td>@entry.Step</td><td>@entry.FoldProbability.ToString("P2")</td><td>@entry.PushShare.ToString("P2")</td></tr>
+                }
+                </tbody></table>
+            </details>
+        }
+
+        <h2 class="h4">13×13-Matrix @(record.Scenario == "B" ? "SB Push/Fold" : "RFI")</h2>
+        <div class="matrix-wrapper">
+            <table class="poker-matrix">
+                <thead>
+                    <tr>
+                        <th class="corner"></th>
+                        @foreach (var rank in Model.Ranks)
+                        {
+                            <th class="rank-header">@rank</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int row = 0; row < 13; row++)
+                    {
+                        <tr>
+                            <th class="rank-header">@Model.Ranks[row]</th>
+                            @for (int column = 0; column < 13; column++)
+                            {
+                                var cell = cells[row, column];
+                                <td class="matrix-cell" style="background-color: rgb(@Model.GetColorRgb(cell))" title="@cell.Hand">
+                                    <div class="cell-hand">@cell.Hand</div>
+                                    <div class="cell-value">@Model.FormatCellValue(cell)</div>
+                                    <div class="cell-value">@(cell.ActionFrequency.HasValue ? cell.ActionFrequency.Value.ToString("P0") + " " : "")@cell.HeroAction</div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <small class="text-muted">
+            Zellwert: Equity und EV in bb; dritte Zeile: Aktion von Hero. Grün = Push/Raise, Rot = Fold.
+        </small>
+        @if (record.Scenario == "B")
+        {
+            @if (Model.BbCells is { } bbCells)
+            {
+                <h2 class="h4 mt-4">13×13-Matrix: BB Call/Fold</h2>
+                <p class="text-muted">BB-Equity gegen die gespeicherte SB Push-Range; EV Call = 2S · E(BB) − S.</p>
+                <div class="matrix-wrapper">
+                    <table class="poker-matrix">
+                        <thead>
+                            <tr>
+                                <th class="corner"></th>
+                                @foreach (var rank in Model.Ranks)
+                                {
+                                    <th class="rank-header">@rank</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int row = 0; row < 13; row++)
+                            {
+                                <tr>
+                                    <th class="rank-header">@Model.Ranks[row]</th>
+                                    @for (int column = 0; column < 13; column++)
+                                    {
+                                        var cell = bbCells[row, column];
+                                        <td class="matrix-cell" style="background-color: rgb(@Model.GetColorRgb(cell))" title="@cell.Hand: E(BB)=@cell.Equity.ToString("P2"), EV Call=@cell.Ev.ToString("F3") bb">
+                                            <div class="cell-hand">@cell.Hand</div>
+                                            <div class="cell-value">@Model.FormatCellValue(cell)</div>
+                                            <div class="cell-value">@(cell.ActionFrequency.HasValue ? cell.ActionFrequency.Value.ToString("P0") + " " : "")@cell.HeroAction</div>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <small class="text-muted">Grün = Call, Rot = Fold.</small>
+            }
+            else
+            {
+                <div class="alert alert-warning mt-3">Für diesen älteren Lauf ist keine korrekt berechnete BB-Matrix gespeichert. Bitte Szenario B erneut berechnen.</div>
+            }
+        }
+    }
+</div>

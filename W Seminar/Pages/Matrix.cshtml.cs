@@ -31,21 +31,33 @@ public class MatrixModel : PageModel
 
     public int TotalSamples { get; private set; }
 
+    [BindProperty(SupportsGet = true)]
+    public string? SelectedSession { get; set; }
+
+    [BindProperty(SupportsGet = true)]
+    public string? SelectedRange { get; set; }
+
+    public IReadOnlyList<string> AllSessions { get; private set; } = Array.Empty<string>();
+    public IReadOnlyList<string> AllRanges { get; private set; } = Array.Empty<string>();
+
     public void OnGet()
     {
         var all = _store.LoadAll();
-
-        // Phasen-Filter
-        if (SelectedPhase != "Alle")
-            all = all.Where(r => r.Phase == SelectedPhase).ToList();
+        AllSessions = all.Select(r => r.SessionId).Distinct().OrderByDescending(s => s).ToList();
+        AllRanges = all.Select(r => r.OpponentRange).Where(r => !string.IsNullOrEmpty(r)).Select(r => r!).Distinct().ToList();
 
         TablePosition? posFilter = null;
         if (!string.IsNullOrEmpty(SelectedPosition) && Enum.TryParse<TablePosition>(SelectedPosition, out var p))
             posFilter = p;
 
-        Cells = MatrixAggregator.BuildMatrix(all, posFilter);
-        TotalSamples = all.Count;
+        var filtered = new ResultFilter(posFilter, SelectedPhase, SelectedSession, SelectedRange).Apply(all);
+        Cells = MatrixAggregator.BuildMatrix(filtered);
+        TotalSamples = filtered.Count;
     }
+
+    public string FormatTooltip(MatrixCell c) =>
+        $"{c.Hand} | N={c.TotalSamples} | Sims={c.TotalSimulations} | Eq={c.AvgEquity:P1} ±{c.EquityCi95:P1} | R={c.RaiseRate:P0} C={c.CallRate:P0} F={c.FoldRate:P0}" +
+        (c.LowSample ? " | wenige Samples!" : "");
 
     public double GetIntensity(MatrixCell cell)
     {
@@ -84,7 +96,7 @@ public class MatrixModel : PageModel
             "raise" => cell.RaiseRate.ToString("P0"),
             "call" => cell.CallRate.ToString("P0"),
             "fold" => cell.FoldRate.ToString("P0"),
-            _ => cell.AvgEquity.ToString("P1")
+            _ => cell.AvgEquity.ToString("P1") + (cell.LowSample ? " *" : "")
         };
     }
 }

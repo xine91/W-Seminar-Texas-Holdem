@@ -46,9 +46,19 @@ public class ResultsModel : PageModel
 
     public IActionResult OnGetDownload()
     {
-        if (!System.IO.File.Exists(_store.FilePath))
-            return NotFound();
-        var bytes = System.IO.File.ReadAllBytes(_store.FilePath);
+        var all = _store.LoadAll();
+        if (all.Count == 0) return NotFound();
+        var bytes = System.Text.Encoding.UTF8.GetBytes(_store.ToJsonArray(all));
         return File(bytes, "application/json", $"simulation_results_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json");
+    }
+
+    public IActionResult OnGetDownloadCsv()
+    {
+        var all = _store.LoadAll();
+        if (all.Count == 0) return NotFound();
+        using var sw = new StringWriter();
+        ResultStore.WriteCsv(sw, all);
+        var bytes = System.Text.Encoding.UTF8.GetPreamble().Concat(System.Text.Encoding.UTF8.GetBytes(sw.ToString())).ToArray();
+        return File(bytes, "text/csv", $"simulation_results_{DateTime.UtcNow:yyyyMMdd_HHmmss}.csv");
     }
 }

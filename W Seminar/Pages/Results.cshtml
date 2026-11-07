@@ -13,7 +13,8 @@
 	</p>
 
 	<div class="mb-3">
-		<a href="?handler=Download" class="btn btn-sm btn-outline-primary">JSON-Datei herunterladen</a>
+		JSON-Datei herunterladen</a>
+				<a href="?handler=DownloadCsv" class="btn btn-sm btn-outline-primary">CSV herunterladen</a>
 		<a asp-page="/Simulation" class="btn btn-sm btn-primary">Neue Simulation starten</a>
 	</div>
 
@@ -81,7 +82,7 @@
 								@r.Decision
 							</span>
 						</td>
-						<td>@r.Equity.ToString("P1")</td>
+						<td>@r.Equity.ToString("P1") <small class="text-muted">±@((1.96 * r.EquityStdError).ToString("P1"))</small></td>
 						<td>@r.Phase</td>
 						<td>@r.TableSize-max</td>
 						<td>@r.NumOpponents</td>

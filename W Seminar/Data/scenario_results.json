@@ -1,0 +1,5449 @@
+[
+  {
+    "runId": "063a4ad10f214e00a6856e9648433f4a",
+    "timestampUtc": "2026-11-06T17:51:53.6937692Z",
+    "scenario": "B",
+    "parameters": {
+      "opponentRange": "AA,KK,QQ,JJ,TT,99,88,77,66,55,AJs,KQs,AKo",
+      "iterations": 2000,
+      "seed": 7,
+      "stack": 9.91,
+      "foldProbability": 0.5,
+      "sbPushRange": "AA,KK,QQ,JJ,TT,99,88,77,66,55,AJs,KQs,AKo"
+    },
+    "cells": [
+      {
+        "hand": "AA",
+        "equity": 0.84,
+        "ev": 3.8694000000000006,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AKs",
+        "equity": 0.485,
+        "ev": 0.35135000000000005,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AQs",
+        "equity": 0.44775,
+        "ev": -0.017797500000000355,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AJs",
+        "equity": 0.40975,
+        "ev": -0.39437750000000005,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "ATs",
+        "equity": 0.38725,
+        "ev": -0.6173525,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A9s",
+        "equity": 0.38175,
+        "ev": -0.6718575000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A8s",
+        "equity": 0.3625,
+        "ev": -0.862625,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A7s",
+        "equity": 0.33875,
+        "ev": -1.0979875,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A6s",
+        "equity": 0.325,
+        "ev": -1.2342499999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A5s",
+        "equity": 0.34525,
+        "ev": -1.0335725,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A4s",
+        "equity": 0.34875,
+        "ev": -0.9988874999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A3s",
+        "equity": 0.33475,
+        "ev": -1.1376275000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A2s",
+        "equity": 0.33725,
+        "ev": -1.1128525000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AKo",
+        "equity": 0.45575,
+        "ev": 0.06148249999999944,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KK",
+        "equity": 0.7325,
+        "ev": 2.804075,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KQs",
+        "equity": 0.4255,
+        "ev": -0.23829499999999992,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KJs",
+        "equity": 0.357,
+        "ev": -0.9171300000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KTs",
+        "equity": 0.36475,
+        "ev": -0.8403274999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K9s",
+        "equity": 0.35775,
+        "ev": -0.9096975,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K8s",
+        "equity": 0.31775,
+        "ev": -1.3060975000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K7s",
+        "equity": 0.32025,
+        "ev": -1.2813225000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K6s",
+        "equity": 0.3105,
+        "ev": -1.377945,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K5s",
+        "equity": 0.3035,
+        "ev": -1.4473150000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K4s",
+        "equity": 0.29875,
+        "ev": -1.4943874999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K3s",
+        "equity": 0.285,
+        "ev": -1.6306500000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K2s",
+        "equity": 0.28125,
+        "ev": -1.6678125000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AQo",
+        "equity": 0.41825,
+        "ev": -0.31014249999999954,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KQo",
+        "equity": 0.36625,
+        "ev": -0.8254625,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QQ",
+        "equity": 0.6535,
+        "ev": 2.021185,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QJs",
+        "equity": 0.386,
+        "ev": -0.62974,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QTs",
+        "equity": 0.3835,
+        "ev": -0.654515,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q9s",
+        "equity": 0.36125,
+        "ev": -0.8750125,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q8s",
+        "equity": 0.343,
+        "ev": -1.0558699999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q7s",
+        "equity": 0.3135,
+        "ev": -1.3482150000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q6s",
+        "equity": 0.30175,
+        "ev": -1.4646575,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q5s",
+        "equity": 0.31775,
+        "ev": -1.3060975000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q4s",
+        "equity": 0.295,
+        "ev": -1.5315500000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q3s",
+        "equity": 0.29125,
+        "ev": -1.5687124999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q2s",
+        "equity": 0.2665,
+        "ev": -1.8139849999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AJo",
+        "equity": 0.3945,
+        "ev": -0.5455049999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KJo",
+        "equity": 0.35825,
+        "ev": -0.9047424999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QJo",
+        "equity": 0.37375,
+        "ev": -0.7511374999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "JJ",
+        "equity": 0.60225,
+        "ev": 1.5132974999999993,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "JTs",
+        "equity": 0.38525,
+        "ev": -0.6371725000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J9s",
+        "equity": 0.363,
+        "ev": -0.8576700000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J8s",
+        "equity": 0.333,
+        "ev": -1.15497,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J7s",
+        "equity": 0.3185,
+        "ev": -1.2986650000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J6s",
+        "equity": 0.3135,
+        "ev": -1.3482150000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J5s",
+        "equity": 0.3,
+        "ev": -1.4820000000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J4s",
+        "equity": 0.28625,
+        "ev": -1.6182625000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J3s",
+        "equity": 0.27775,
+        "ev": -1.7024975000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J2s",
+        "equity": 0.27,
+        "ev": -1.7792999999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "ATo",
+        "equity": 0.34725,
+        "ev": -1.0137524999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KTo",
+        "equity": 0.363,
+        "ev": -0.8576700000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QTo",
+        "equity": 0.353,
+        "ev": -0.9567700000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "JTo",
+        "equity": 0.32625,
+        "ev": -1.2218625000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "TT",
+        "equity": 0.55125,
+        "ev": 1.0078874999999998,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T9s",
+        "equity": 0.358,
+        "ev": -0.9072200000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T8s",
+        "equity": 0.33975,
+        "ev": -1.0880775000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T7s",
+        "equity": 0.305,
+        "ev": -1.4324500000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T6s",
+        "equity": 0.29275,
+        "ev": -1.5538474999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T5s",
+        "equity": 0.28125,
+        "ev": -1.6678125000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T4s",
+        "equity": 0.28775,
+        "ev": -1.6033974999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T3s",
+        "equity": 0.25975,
+        "ev": -1.8808775000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T2s",
+        "equity": 0.2715,
+        "ev": -1.7644349999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A9o",
+        "equity": 0.3165,
+        "ev": -1.318485,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K9o",
+        "equity": 0.32225,
+        "ev": -1.2615025000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q9o",
+        "equity": 0.3185,
+        "ev": -1.2986650000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J9o",
+        "equity": 0.33325,
+        "ev": -1.1524925000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T9o",
+        "equity": 0.3315,
+        "ev": -1.169835,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "99",
+        "equity": 0.46525,
+        "ev": 0.15562749999999959,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "98s",
+        "equity": 0.34475,
+        "ev": -1.0385274999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "97s",
+        "equity": 0.32425,
+        "ev": -1.2416825,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "96s",
+        "equity": 0.311,
+        "ev": -1.3729900000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "95s",
+        "equity": 0.2765,
+        "ev": -1.7148849999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "94s",
+        "equity": 0.25475,
+        "ev": -1.9304275000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "93s",
+        "equity": 0.2725,
+        "ev": -1.7545249999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "92s",
+        "equity": 0.2715,
+        "ev": -1.7644349999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A8o",
+        "equity": 0.317,
+        "ev": -1.31353,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K8o",
+        "equity": 0.305,
+        "ev": -1.4324500000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q8o",
+        "equity": 0.292,
+        "ev": -1.56128,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J8o",
+        "equity": 0.29325,
+        "ev": -1.5488925,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T8o",
+        "equity": 0.3045,
+        "ev": -1.437405,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "98o",
+        "equity": 0.277,
+        "ev": -1.70993,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "88",
+        "equity": 0.43375,
+        "ev": -0.15653749999999977,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "87s",
+        "equity": 0.31225,
+        "ev": -1.3606024999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "86s",
+        "equity": 0.30725,
+        "ev": -1.4101524999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "85s",
+        "equity": 0.28025,
+        "ev": -1.6777225000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "84s",
+        "equity": 0.26025,
+        "ev": -1.8759225000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "83s",
+        "equity": 0.23675,
+        "ev": -2.1088075,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "82s",
+        "equity": 0.244,
+        "ev": -2.03696,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A7o",
+        "equity": 0.30775,
+        "ev": -1.4051974999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K7o",
+        "equity": 0.28125,
+        "ev": -1.6678125000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q7o",
+        "equity": 0.2875,
+        "ev": -1.6058750000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J7o",
+        "equity": 0.2845,
+        "ev": -1.6356050000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T7o",
+        "equity": 0.27525,
+        "ev": -1.7272725000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "97o",
+        "equity": 0.256,
+        "ev": -1.91804,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "87o",
+        "equity": 0.27475,
+        "ev": -1.7322275,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "77",
+        "equity": 0.371,
+        "ev": -0.7783899999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "76s",
+        "equity": 0.28275,
+        "ev": -1.6529475000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "75s",
+        "equity": 0.27925,
+        "ev": -1.6876324999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "74s",
+        "equity": 0.262,
+        "ev": -1.85858,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "73s",
+        "equity": 0.25075,
+        "ev": -1.9700675000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "72s",
+        "equity": 0.2295,
+        "ev": -2.180655,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A6o",
+        "equity": 0.31975,
+        "ev": -1.2862775000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K6o",
+        "equity": 0.2735,
+        "ev": -1.744615,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q6o",
+        "equity": 0.27525,
+        "ev": -1.7272725000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J6o",
+        "equity": 0.2625,
+        "ev": -1.853625,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T6o",
+        "equity": 0.26175,
+        "ev": -1.8610575000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "96o",
+        "equity": 0.24225,
+        "ev": -2.0543025,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "86o",
+        "equity": 0.2555,
+        "ev": -1.9229949999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "76o",
+        "equity": 0.2575,
+        "ev": -1.903175,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "66",
+        "equity": 0.353,
+        "ev": -0.9567700000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "65s",
+        "equity": 0.28025,
+        "ev": -1.6777225000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "64s",
+        "equity": 0.2485,
+        "ev": -1.992365,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "63s",
+        "equity": 0.242,
+        "ev": -2.0567800000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "62s",
+        "equity": 0.22725,
+        "ev": -2.2029525,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A5o",
+        "equity": 0.30725,
+        "ev": -1.4101524999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K5o",
+        "equity": 0.274,
+        "ev": -1.7396599999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q5o",
+        "equity": 0.25475,
+        "ev": -1.9304275000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J5o",
+        "equity": 0.2455,
+        "ev": -2.022095,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T5o",
+        "equity": 0.24075,
+        "ev": -2.0691675000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "95o",
+        "equity": 0.229,
+        "ev": -2.18561,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "85o",
+        "equity": 0.226,
+        "ev": -2.21534,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "75o",
+        "equity": 0.23575,
+        "ev": -2.1187175000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "65o",
+        "equity": 0.2395,
+        "ev": -2.0815550000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "55",
+        "equity": 0.291,
+        "ev": -1.57119,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "54s",
+        "equity": 0.2405,
+        "ev": -2.071645,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "53s",
+        "equity": 0.25425,
+        "ev": -1.9353825000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "52s",
+        "equity": 0.22925,
+        "ev": -2.1831325,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A4o",
+        "equity": 0.30425,
+        "ev": -1.4398825,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K4o",
+        "equity": 0.2495,
+        "ev": -1.9824549999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q4o",
+        "equity": 0.2585,
+        "ev": -1.893265,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J4o",
+        "equity": 0.2515,
+        "ev": -1.9626350000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T4o",
+        "equity": 0.2425,
+        "ev": -2.051825,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "94o",
+        "equity": 0.239,
+        "ev": -2.08651,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "84o",
+        "equity": 0.207,
+        "ev": -2.40363,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "74o",
+        "equity": 0.212,
+        "ev": -2.35408,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "64o",
+        "equity": 0.224,
+        "ev": -2.23516,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "54o",
+        "equity": 0.21675,
+        "ev": -2.3070075,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "44",
+        "equity": 0.287,
+        "ev": -1.6108300000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "43s",
+        "equity": 0.2285,
+        "ev": -2.190565,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "42s",
+        "equity": 0.22875,
+        "ev": -2.1880875,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A3o",
+        "equity": 0.278,
+        "ev": -1.7000199999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K3o",
+        "equity": 0.244,
+        "ev": -2.03696,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q3o",
+        "equity": 0.24025,
+        "ev": -2.0741225,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J3o",
+        "equity": 0.24375,
+        "ev": -2.0394375,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T3o",
+        "equity": 0.26,
+        "ev": -1.8784,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "93o",
+        "equity": 0.21825,
+        "ev": -2.2921425,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "83o",
+        "equity": 0.21175,
+        "ev": -2.3565575,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "73o",
+        "equity": 0.2075,
+        "ev": -2.3986750000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "63o",
+        "equity": 0.21025,
+        "ev": -2.3714225,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "53o",
+        "equity": 0.2105,
+        "ev": -2.368945,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "43o",
+        "equity": 0.21425,
+        "ev": -2.3317825,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "33",
+        "equity": 0.2675,
+        "ev": -1.804075,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "32s",
+        "equity": 0.22725,
+        "ev": -2.2029525,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A2o",
+        "equity": 0.2895,
+        "ev": -1.5860550000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K2o",
+        "equity": 0.25725,
+        "ev": -1.9056525000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q2o",
+        "equity": 0.26275,
+        "ev": -1.8511475000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J2o",
+        "equity": 0.242,
+        "ev": -2.0567800000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T2o",
+        "equity": 0.2235,
+        "ev": -2.240115,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "92o",
+        "equity": 0.209,
+        "ev": -2.38381,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "82o",
+        "equity": 0.19925,
+        "ev": -2.4804325,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "72o",
+        "equity": 0.204,
+        "ev": -2.43336,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "62o",
+        "equity": 0.18275,
+        "ev": -2.6439475000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "52o",
+        "equity": 0.18775,
+        "ev": -2.5943975000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "42o",
+        "equity": 0.1985,
+        "ev": -2.487865,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "32o",
+        "equity": 0.19375,
+        "ev": -2.5349375,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "22",
+        "equity": 0.239,
+        "ev": -2.08651,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      }
+    ],
+    "bbCells": [
+      {
+        "hand": "AA",
+        "equity": 0.84,
+        "ev": 6.738800000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AKs",
+        "equity": 0.485,
+        "ev": -0.2972999999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AQs",
+        "equity": 0.44775,
+        "ev": -1.0355950000000007,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AJs",
+        "equity": 0.40975,
+        "ev": -1.788755,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "ATs",
+        "equity": 0.38725,
+        "ev": -2.234705,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A9s",
+        "equity": 0.38175,
+        "ev": -2.3437150000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A8s",
+        "equity": 0.3625,
+        "ev": -2.72525,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A7s",
+        "equity": 0.33875,
+        "ev": -3.195975,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A6s",
+        "equity": 0.325,
+        "ev": -3.4684999999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A5s",
+        "equity": 0.34525,
+        "ev": -3.067145,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A4s",
+        "equity": 0.34875,
+        "ev": -2.997775,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A3s",
+        "equity": 0.33475,
+        "ev": -3.2752550000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A2s",
+        "equity": 0.33725,
+        "ev": -3.2257050000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AKo",
+        "equity": 0.45575,
+        "ev": -0.8770350000000011,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KK",
+        "equity": 0.7325,
+        "ev": 4.60815,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KQs",
+        "equity": 0.4255,
+        "ev": -1.4765899999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KJs",
+        "equity": 0.357,
+        "ev": -2.8342600000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KTs",
+        "equity": 0.36475,
+        "ev": -2.680655,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K9s",
+        "equity": 0.35775,
+        "ev": -2.819395,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K8s",
+        "equity": 0.31775,
+        "ev": -3.6121950000000007,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K7s",
+        "equity": 0.32025,
+        "ev": -3.5626450000000007,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K6s",
+        "equity": 0.3105,
+        "ev": -3.75589,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K5s",
+        "equity": 0.3035,
+        "ev": -3.8946300000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K4s",
+        "equity": 0.29875,
+        "ev": -3.9887749999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K3s",
+        "equity": 0.285,
+        "ev": -4.2613,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K2s",
+        "equity": 0.28125,
+        "ev": -4.335625,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AQo",
+        "equity": 0.41825,
+        "ev": -1.620284999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KQo",
+        "equity": 0.36625,
+        "ev": -2.650925,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QQ",
+        "equity": 0.6535,
+        "ev": 3.04237,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QJs",
+        "equity": 0.386,
+        "ev": -2.25948,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QTs",
+        "equity": 0.3835,
+        "ev": -2.30903,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q9s",
+        "equity": 0.36125,
+        "ev": -2.750025,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q8s",
+        "equity": 0.343,
+        "ev": -3.1117399999999993,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q7s",
+        "equity": 0.3135,
+        "ev": -3.6964300000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q6s",
+        "equity": 0.30175,
+        "ev": -3.929315,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q5s",
+        "equity": 0.31775,
+        "ev": -3.6121950000000007,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q4s",
+        "equity": 0.295,
+        "ev": -4.0631,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q3s",
+        "equity": 0.29125,
+        "ev": -4.1374249999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q2s",
+        "equity": 0.2665,
+        "ev": -4.6279699999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "AJo",
+        "equity": 0.3945,
+        "ev": -2.09101,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KJo",
+        "equity": 0.35825,
+        "ev": -2.8094849999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QJo",
+        "equity": 0.37375,
+        "ev": -2.502274999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "JJ",
+        "equity": 0.60225,
+        "ev": 2.0265949999999986,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "JTs",
+        "equity": 0.38525,
+        "ev": -2.2743450000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J9s",
+        "equity": 0.363,
+        "ev": -2.7153400000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J8s",
+        "equity": 0.333,
+        "ev": -3.30994,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J7s",
+        "equity": 0.3185,
+        "ev": -3.5973300000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J6s",
+        "equity": 0.3135,
+        "ev": -3.6964300000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J5s",
+        "equity": 0.3,
+        "ev": -3.9640000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J4s",
+        "equity": 0.28625,
+        "ev": -4.236525,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J3s",
+        "equity": 0.27775,
+        "ev": -4.404995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J2s",
+        "equity": 0.27,
+        "ev": -4.558599999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "ATo",
+        "equity": 0.34725,
+        "ev": -3.0275049999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "KTo",
+        "equity": 0.363,
+        "ev": -2.7153400000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "QTo",
+        "equity": 0.353,
+        "ev": -2.9135400000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "JTo",
+        "equity": 0.32625,
+        "ev": -3.4437250000000006,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "TT",
+        "equity": 0.55125,
+        "ev": 1.0157749999999997,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T9s",
+        "equity": 0.358,
+        "ev": -2.8144400000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T8s",
+        "equity": 0.33975,
+        "ev": -3.1761550000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T7s",
+        "equity": 0.305,
+        "ev": -3.8649000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T6s",
+        "equity": 0.29275,
+        "ev": -4.107695,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T5s",
+        "equity": 0.28125,
+        "ev": -4.335625,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T4s",
+        "equity": 0.28775,
+        "ev": -4.206795,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T3s",
+        "equity": 0.25975,
+        "ev": -4.761755000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T2s",
+        "equity": 0.2715,
+        "ev": -4.5288699999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A9o",
+        "equity": 0.3165,
+        "ev": -3.63697,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K9o",
+        "equity": 0.32225,
+        "ev": -3.5230050000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q9o",
+        "equity": 0.3185,
+        "ev": -3.5973300000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J9o",
+        "equity": 0.33325,
+        "ev": -3.3049850000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T9o",
+        "equity": 0.3315,
+        "ev": -3.33967,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "99",
+        "equity": 0.46525,
+        "ev": -0.6887450000000008,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "98s",
+        "equity": 0.34475,
+        "ev": -3.0770549999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "97s",
+        "equity": 0.32425,
+        "ev": -3.483365,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "96s",
+        "equity": 0.311,
+        "ev": -3.7459800000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "95s",
+        "equity": 0.2765,
+        "ev": -4.4297699999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "94s",
+        "equity": 0.25475,
+        "ev": -4.860855000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "93s",
+        "equity": 0.2725,
+        "ev": -4.509049999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "92s",
+        "equity": 0.2715,
+        "ev": -4.5288699999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A8o",
+        "equity": 0.317,
+        "ev": -3.62706,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K8o",
+        "equity": 0.305,
+        "ev": -3.8649000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q8o",
+        "equity": 0.292,
+        "ev": -4.12256,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J8o",
+        "equity": 0.29325,
+        "ev": -4.097785,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T8o",
+        "equity": 0.3045,
+        "ev": -3.87481,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "98o",
+        "equity": 0.277,
+        "ev": -4.41986,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "88",
+        "equity": 0.43375,
+        "ev": -1.3130749999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "87s",
+        "equity": 0.31225,
+        "ev": -3.7212049999999994,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "86s",
+        "equity": 0.30725,
+        "ev": -3.8203049999999994,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "85s",
+        "equity": 0.28025,
+        "ev": -4.3554450000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "84s",
+        "equity": 0.26025,
+        "ev": -4.751845,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "83s",
+        "equity": 0.23675,
+        "ev": -5.217615,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "82s",
+        "equity": 0.244,
+        "ev": -5.07392,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A7o",
+        "equity": 0.30775,
+        "ev": -3.8103949999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K7o",
+        "equity": 0.28125,
+        "ev": -4.335625,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q7o",
+        "equity": 0.2875,
+        "ev": -4.21175,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J7o",
+        "equity": 0.2845,
+        "ev": -4.271210000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T7o",
+        "equity": 0.27525,
+        "ev": -4.454545,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "97o",
+        "equity": 0.256,
+        "ev": -4.83608,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "87o",
+        "equity": 0.27475,
+        "ev": -4.464455,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "77",
+        "equity": 0.371,
+        "ev": -2.55678,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "76s",
+        "equity": 0.28275,
+        "ev": -4.3058950000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "75s",
+        "equity": 0.27925,
+        "ev": -4.375265,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "74s",
+        "equity": 0.262,
+        "ev": -4.71716,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "73s",
+        "equity": 0.25075,
+        "ev": -4.940135000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "72s",
+        "equity": 0.2295,
+        "ev": -5.36131,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A6o",
+        "equity": 0.31975,
+        "ev": -3.5725550000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K6o",
+        "equity": 0.2735,
+        "ev": -4.48923,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q6o",
+        "equity": 0.27525,
+        "ev": -4.454545,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J6o",
+        "equity": 0.2625,
+        "ev": -4.70725,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T6o",
+        "equity": 0.26175,
+        "ev": -4.7221150000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "96o",
+        "equity": 0.24225,
+        "ev": -5.108605,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "86o",
+        "equity": 0.2555,
+        "ev": -4.84599,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "76o",
+        "equity": 0.2575,
+        "ev": -4.80635,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "66",
+        "equity": 0.353,
+        "ev": -2.9135400000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "65s",
+        "equity": 0.28025,
+        "ev": -4.3554450000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "64s",
+        "equity": 0.2485,
+        "ev": -4.98473,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "63s",
+        "equity": 0.242,
+        "ev": -5.1135600000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "62s",
+        "equity": 0.22725,
+        "ev": -5.405905,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A5o",
+        "equity": 0.30725,
+        "ev": -3.8203049999999994,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K5o",
+        "equity": 0.274,
+        "ev": -4.4793199999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q5o",
+        "equity": 0.25475,
+        "ev": -4.860855000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J5o",
+        "equity": 0.2455,
+        "ev": -5.04419,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T5o",
+        "equity": 0.24075,
+        "ev": -5.1383350000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "95o",
+        "equity": 0.229,
+        "ev": -5.37122,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "85o",
+        "equity": 0.226,
+        "ev": -5.43068,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "75o",
+        "equity": 0.23575,
+        "ev": -5.2374350000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "65o",
+        "equity": 0.2395,
+        "ev": -5.1631100000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "55",
+        "equity": 0.291,
+        "ev": -4.14238,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "54s",
+        "equity": 0.2405,
+        "ev": -5.14329,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "53s",
+        "equity": 0.25425,
+        "ev": -4.8707650000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "52s",
+        "equity": 0.22925,
+        "ev": -5.366265,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A4o",
+        "equity": 0.30425,
+        "ev": -3.879765,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K4o",
+        "equity": 0.2495,
+        "ev": -4.96491,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q4o",
+        "equity": 0.2585,
+        "ev": -4.78653,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J4o",
+        "equity": 0.2515,
+        "ev": -4.92527,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T4o",
+        "equity": 0.2425,
+        "ev": -5.10365,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "94o",
+        "equity": 0.239,
+        "ev": -5.17302,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "84o",
+        "equity": 0.207,
+        "ev": -5.80726,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "74o",
+        "equity": 0.212,
+        "ev": -5.70816,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "64o",
+        "equity": 0.224,
+        "ev": -5.47032,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "54o",
+        "equity": 0.21675,
+        "ev": -5.614015,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "44",
+        "equity": 0.287,
+        "ev": -4.221660000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "43s",
+        "equity": 0.2285,
+        "ev": -5.38113,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "42s",
+        "equity": 0.22875,
+        "ev": -5.376175,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A3o",
+        "equity": 0.278,
+        "ev": -4.40004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K3o",
+        "equity": 0.244,
+        "ev": -5.07392,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q3o",
+        "equity": 0.24025,
+        "ev": -5.148245,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J3o",
+        "equity": 0.24375,
+        "ev": -5.078875,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T3o",
+        "equity": 0.26,
+        "ev": -4.7568,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "93o",
+        "equity": 0.21825,
+        "ev": -5.584285,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "83o",
+        "equity": 0.21175,
+        "ev": -5.713115,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "73o",
+        "equity": 0.2075,
+        "ev": -5.797350000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "63o",
+        "equity": 0.21025,
+        "ev": -5.742845,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "53o",
+        "equity": 0.2105,
+        "ev": -5.73789,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "43o",
+        "equity": 0.21425,
+        "ev": -5.663565,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "33",
+        "equity": 0.2675,
+        "ev": -4.60815,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "32s",
+        "equity": 0.22725,
+        "ev": -5.405905,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "A2o",
+        "equity": 0.2895,
+        "ev": -4.172110000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "K2o",
+        "equity": 0.25725,
+        "ev": -4.811305000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "Q2o",
+        "equity": 0.26275,
+        "ev": -4.702295,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "J2o",
+        "equity": 0.242,
+        "ev": -5.1135600000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "T2o",
+        "equity": 0.2235,
+        "ev": -5.48023,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "92o",
+        "equity": 0.209,
+        "ev": -5.76762,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "82o",
+        "equity": 0.19925,
+        "ev": -5.960865,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "72o",
+        "equity": 0.204,
+        "ev": -5.86672,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "62o",
+        "equity": 0.18275,
+        "ev": -6.287895000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "52o",
+        "equity": 0.18775,
+        "ev": -6.188795000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "42o",
+        "equity": 0.1985,
+        "ev": -5.97573,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "32o",
+        "equity": 0.19375,
+        "ev": -6.069875,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      },
+      {
+        "hand": "22",
+        "equity": 0.239,
+        "ev": -5.17302,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 2000
+      }
+    ]
+  },
+  {
+    "runId": "16da87ed40b0471aa425940a8332b95a",
+    "timestampUtc": "2026-11-06T18:05:57.0577719Z",
+    "scenario": "B",
+    "parameters": {
+      "opponentRange": "22,33,44,55,66,77,88,99,A2o,A2s,A3o,A3s,A4o,A4s,A5o,A5s,A6o,A6s,A7o,A7s,A8o,A8s,A9o,A9s,AA,AJo,AJs,AKo,AKs,AQo,AQs,ATo,ATs,JJ,K6s,K7s,K8o,K8s,K9o,K9s,KJo,KJs,KK,KQo,KQs,KTo,KTs,QJo,QJs,QQ,QTs,TT",
+      "iterations": 50000,
+      "seed": 7,
+      "stack": 10,
+      "foldProbability": 0.7149321266968326,
+      "sbPushRange": "22,32o,32s,33,42o,42s,43o,43s,44,52o,52s,53o,53s,54o,54s,55,62o,62s,63o,63s,64o,64s,65o,65s,66,72o,72s,73o,73s,74o,74s,75o,75s,76o,76s,77,82o,82s,83o,83s,84o,84s,85o,85s,86o,86s,87o,87s,88,92o,92s,93o,93s,94o,94s,95o,95s,96o,96s,97o,97s,98o,98s,99,A2o,A2s,A3o,A3s,A4o,A4s,A5o,A5s,A6o,A6s,A7o,A7s,A8o,A8s,A9o,A9s,AA,AJo,AJs,AKo,AKs,AQo,AQs,ATo,ATs,J2o,J2s,J3o,J3s,J4o,J4s,J5o,J5s,J6o,J6s,J7o,J7s,J8o,J8s,J9o,J9s,JJ,JTo,JTs,K2o,K2s,K3o,K3s,K4o,K4s,K5o,K5s,K6o,K6s,K7o,K7s,K8o,K8s,K9o,K9s,KJo,KJs,KK,KQo,KQs,KTo,KTs,Q2o,Q2s,Q3o,Q3s,Q4o,Q4s,Q5o,Q5s,Q6o,Q6s,Q7o,Q7s,Q8o,Q8s,Q9o,Q9s,QJo,QJs,QQ,QTo,QTs,T2o,T2s,T3o,T3s,T4o,T4s,T5o,T5s,T6o,T6s,T7o,T7s,T8o,T8s,T9o,T9s,TT",
+      "initialCallRange": "AA,KK,QQ,JJ,TT,99,88,77,66,55,AJs,KQs,AKo",
+      "resultCallRange": "22,33,44,55,66,76s,77,86s,87o,87s,88,95s,96s,97o,97s,98o,98s,99,A2o,A2s,A3o,A3s,A4o,A4s,A5o,A5s,A6o,A6s,A7o,A7s,A8o,A8s,A9o,A9s,AA,AJo,AJs,AKo,AKs,AQo,AQs,ATo,ATs,J2s,J3o,J3s,J4o,J4s,J5o,J5s,J6o,J6s,J7o,J7s,J8o,J8s,J9o,J9s,JJ,JTo,JTs,K2o,K2s,K3o,K3s,K4o,K4s,K5o,K5s,K6o,K6s,K7o,K7s,K8o,K8s,K9o,K9s,KJo,KJs,KK,KQo,KQs,KTo,KTs,Q2o,Q2s,Q3o,Q3s,Q4o,Q4s,Q5o,Q5s,Q6o,Q6s,Q7o,Q7s,Q8o,Q8s,Q9o,Q9s,QJo,QJs,QQ,QTo,QTs,T3s,T4s,T5s,T6o,T6s,T7o,T7s,T8o,T8s,T9o,T9s,TT"
+    },
+    "cells": [
+      {
+        "hand": "AA",
+        "equity": 0.86088,
+        "ev": 2.772438009049774,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AKs",
+        "equity": 0.65909,
+        "ev": 1.6219610859728504,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AQs",
+        "equity": 0.62291,
+        "ev": 1.4156859728506785,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AJs",
+        "equity": 0.59913,
+        "ev": 1.2801076923076926,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "ATs",
+        "equity": 0.57227,
+        "ev": 1.1269692307692305,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A9s",
+        "equity": 0.53963,
+        "ev": 0.9408769230769232,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A8s",
+        "equity": 0.51718,
+        "ev": 0.8128814479638005,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A7s",
+        "equity": 0.49566,
+        "ev": 0.6901882352941175,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A6s",
+        "equity": 0.46707,
+        "ev": 0.5271864253393665,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A5s",
+        "equity": 0.47317,
+        "ev": 0.5619647058823529,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A4s",
+        "equity": 0.46105,
+        "ev": 0.49286425339366524,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A3s",
+        "equity": 0.45324,
+        "ev": 0.44833665158371044,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A2s",
+        "equity": 0.444,
+        "ev": 0.39565610859728534,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AKo",
+        "equity": 0.64483,
+        "ev": 1.5406597285067871,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KK",
+        "equity": 0.7493,
+        "ev": 2.136280542986425,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KQs",
+        "equity": 0.49276,
+        "ev": 0.6736542986425339,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KJs",
+        "equity": 0.47204,
+        "ev": 0.5555221719457012,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KTs",
+        "equity": 0.44978,
+        "ev": 0.4286099547511311,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K9s",
+        "equity": 0.41829,
+        "ev": 0.24907420814479647,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K8s",
+        "equity": 0.39387,
+        "ev": 0.10984705882352941,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K7s",
+        "equity": 0.3924,
+        "ev": 0.10146606334841657,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K6s",
+        "equity": 0.38188,
+        "ev": 0.04148778280542986,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K5s",
+        "equity": 0.37576,
+        "ev": 0.006595475113122196,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K4s",
+        "equity": 0.36423,
+        "ev": -0.05914117647058814,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K3s",
+        "equity": 0.36388,
+        "ev": -0.06113665158371051,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K2s",
+        "equity": 0.35389,
+        "ev": -0.1180932126696832,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AQo",
+        "equity": 0.60603,
+        "ev": 1.3194470588235294,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KQo",
+        "equity": 0.46843,
+        "ev": 0.5349402714932129,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QQ",
+        "equity": 0.70598,
+        "ev": 1.8892977375565616,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QJs",
+        "equity": 0.42859,
+        "ev": 0.3077981900452488,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QTs",
+        "equity": 0.42152,
+        "ev": 0.2674895927601812,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q9s",
+        "equity": 0.39106,
+        "ev": 0.09382624434389153,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q8s",
+        "equity": 0.38101,
+        "ev": 0.03652760180995496,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q7s",
+        "equity": 0.37544,
+        "ev": 0.004771040723981934,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q6s",
+        "equity": 0.37104,
+        "ev": -0.020314932126696883,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q5s",
+        "equity": 0.36368,
+        "ev": -0.06227692307692301,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q4s",
+        "equity": 0.3596,
+        "ev": -0.08553846153846167,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q3s",
+        "equity": 0.354,
+        "ev": -0.11746606334841625,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q2s",
+        "equity": 0.34652,
+        "ev": -0.16011221719457014,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AJo",
+        "equity": 0.57866,
+        "ev": 1.1634009049773755,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KJo",
+        "equity": 0.44751,
+        "ev": 0.4156678733031676,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QJo",
+        "equity": 0.39915,
+        "ev": 0.13995022624434406,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "JJ",
+        "equity": 0.67211,
+        "ev": 1.6961927601809954,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "JTs",
+        "equity": 0.41553,
+        "ev": 0.23333846153846183,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J9s",
+        "equity": 0.40797,
+        "ev": 0.19023619909502265,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J8s",
+        "equity": 0.38878,
+        "ev": 0.08082714932126722,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J7s",
+        "equity": 0.37725,
+        "ev": 0.015090497737556552,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J6s",
+        "equity": 0.36261,
+        "ev": -0.06837737556561074,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J5s",
+        "equity": 0.36478,
+        "ev": -0.056005429864253276,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J4s",
+        "equity": 0.35793,
+        "ev": -0.09505972850678712,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J3s",
+        "equity": 0.34798,
+        "ev": -0.15178823529411756,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J2s",
+        "equity": 0.34184,
+        "ev": -0.18679457013574674,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "ATo",
+        "equity": 0.55273,
+        "ev": 1.0155647058823531,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KTo",
+        "equity": 0.42614,
+        "ev": 0.29382986425339375,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QTo",
+        "equity": 0.38663,
+        "ev": 0.06856923076923072,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "JTo",
+        "equity": 0.38709,
+        "ev": 0.07119185520361981,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "TT",
+        "equity": 0.64667,
+        "ev": 1.5511502262443435,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T9s",
+        "equity": 0.4119,
+        "ev": 0.21264253393665145,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T8s",
+        "equity": 0.40251,
+        "ev": 0.1591067873303168,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T7s",
+        "equity": 0.38522,
+        "ev": 0.060530316742081425,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T6s",
+        "equity": 0.37483,
+        "ev": 0.0012932126696832968,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T5s",
+        "equity": 0.35798,
+        "ev": -0.09477466063348405,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T4s",
+        "equity": 0.34927,
+        "ev": -0.1444334841628958,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T3s",
+        "equity": 0.34958,
+        "ev": -0.14266606334841625,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T2s",
+        "equity": 0.34202,
+        "ev": -0.1857683257918552,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A9o",
+        "equity": 0.50963,
+        "ev": 0.7698361990950228,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K9o",
+        "equity": 0.38921,
+        "ev": 0.08327873303167432,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q9o",
+        "equity": 0.36402,
+        "ev": -0.06033846153846145,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J9o",
+        "equity": 0.37009,
+        "ev": -0.025731221719457076,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T9o",
+        "equity": 0.38046,
+        "ev": 0.03339185520362009,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "99",
+        "equity": 0.61097,
+        "ev": 1.3476117647058823,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "98s",
+        "equity": 0.39835,
+        "ev": 0.13538914027149318,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "97s",
+        "equity": 0.39047,
+        "ev": 0.09046244343891408,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "96s",
+        "equity": 0.37989,
+        "ev": 0.03014208144796393,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "95s",
+        "equity": 0.36419,
+        "ev": -0.05936923076923062,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "94s",
+        "equity": 0.3477,
+        "ev": -0.15338461538461512,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "93s",
+        "equity": 0.34352,
+        "ev": -0.17721628959276015,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "92s",
+        "equity": 0.33669,
+        "ev": -0.21615656108597292,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A8o",
+        "equity": 0.48937,
+        "ev": 0.6543266968325792,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K8o",
+        "equity": 0.36102,
+        "ev": -0.07744253393665157,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q8o",
+        "equity": 0.34826,
+        "ev": -0.15019185520361977,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J8o",
+        "equity": 0.35799,
+        "ev": -0.09471764705882357,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T8o",
+        "equity": 0.36783,
+        "ev": -0.03861628959276009,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "98o",
+        "equity": 0.36465,
+        "ev": -0.05674660633484174,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "88",
+        "equity": 0.58567,
+        "ev": 1.2033674208144796,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "87s",
+        "equity": 0.39515,
+        "ev": 0.11714479638009068,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "86s",
+        "equity": 0.38197,
+        "ev": 0.04200090497737541,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "85s",
+        "equity": 0.36826,
+        "ev": -0.03616470588235299,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "84s",
+        "equity": 0.35321,
+        "ev": -0.12197013574660609,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "83s",
+        "equity": 0.33031,
+        "ev": -0.2525312217194571,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "82s",
+        "equity": 0.33126,
+        "ev": -0.24711493212669688,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A7o",
+        "equity": 0.46426,
+        "ev": 0.5111656108597284,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K7o",
+        "equity": 0.34965,
+        "ev": -0.14226696832579167,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q7o",
+        "equity": 0.33722,
+        "ev": -0.21313484162895902,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J7o",
+        "equity": 0.34205,
+        "ev": -0.1855972850678732,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T7o",
+        "equity": 0.3528,
+        "ev": -0.12430769230769223,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "97o",
+        "equity": 0.35618,
+        "ev": -0.10503710407239819,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "87o",
+        "equity": 0.36131,
+        "ev": -0.07578914027149308,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "77",
+        "equity": 0.55822,
+        "ev": 1.0468651583710409,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "76s",
+        "equity": 0.38646,
+        "ev": 0.06760000000000022,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "75s",
+        "equity": 0.37707,
+        "ev": 0.014064253393665349,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "74s",
+        "equity": 0.36337,
+        "ev": -0.06404434389140257,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "73s",
+        "equity": 0.34539,
+        "ev": -0.16655475113122165,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "72s",
+        "equity": 0.32903,
+        "ev": -0.2598289592760181,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A6o",
+        "equity": 0.44497,
+        "ev": 0.40118642533936655,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K6o",
+        "equity": 0.34615,
+        "ev": -0.16222171945701347,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q6o",
+        "equity": 0.33363,
+        "ev": -0.23360271493212692,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J6o",
+        "equity": 0.32905,
+        "ev": -0.2597149321266966,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T6o",
+        "equity": 0.33435,
+        "ev": -0.22949773755656122,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "96o",
+        "equity": 0.34118,
+        "ev": -0.19055746606334845,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "86o",
+        "equity": 0.35484,
+        "ev": -0.11267692307692301,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "76o",
+        "equity": 0.35714,
+        "ev": -0.0995638009049773,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "66",
+        "equity": 0.53866,
+        "ev": 0.9353466063348419,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "65s",
+        "equity": 0.3849,
+        "ev": 0.058705882352941385,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "64s",
+        "equity": 0.36808,
+        "ev": -0.0371909502262443,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "63s",
+        "equity": 0.35337,
+        "ev": -0.12105791855203607,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "62s",
+        "equity": 0.33246,
+        "ev": -0.2402733031674209,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A5o",
+        "equity": 0.43937,
+        "ev": 0.36925882352941175,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K5o",
+        "equity": 0.33811,
+        "ev": -0.20806063348416282,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q5o",
+        "equity": 0.32953,
+        "ev": -0.2569782805429863,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J5o",
+        "equity": 0.32558,
+        "ev": -0.27949864253393675,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T5o",
+        "equity": 0.31718,
+        "ev": -0.3273900452488686,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "95o",
+        "equity": 0.32765,
+        "ev": -0.26769683257918553,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "85o",
+        "equity": 0.33374,
+        "ev": -0.23297556561085986,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "75o",
+        "equity": 0.34254,
+        "ev": -0.1828036199095021,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "65o",
+        "equity": 0.35272,
+        "ev": -0.12476380090497752,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "55",
+        "equity": 0.52217,
+        "ev": 0.8413312217194572,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "54s",
+        "equity": 0.37308,
+        "ev": -0.008684162895927328,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "53s",
+        "equity": 0.36054,
+        "ev": -0.08017918552036174,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "52s",
+        "equity": 0.34355,
+        "ev": -0.17704524886877815,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A4o",
+        "equity": 0.4268,
+        "ev": 0.2975927601809954,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K4o",
+        "equity": 0.34003,
+        "ev": -0.19711402714932114,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q4o",
+        "equity": 0.32186,
+        "ev": -0.30070769230769223,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J4o",
+        "equity": 0.31831,
+        "ev": -0.32094751131221744,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T4o",
+        "equity": 0.3191,
+        "ev": -0.31644343891402726,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "94o",
+        "equity": 0.30939,
+        "ev": -0.37180361990950217,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "84o",
+        "equity": 0.31601,
+        "ev": -0.3340606334841628,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "74o",
+        "equity": 0.32293,
+        "ev": -0.2946072398190046,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "64o",
+        "equity": 0.3289,
+        "ev": -0.26057013574660615,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "54o",
+        "equity": 0.34358,
+        "ev": -0.17687420814479637,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "44",
+        "equity": 0.49693,
+        "ev": 0.6974289592760179,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "43s",
+        "equity": 0.35173,
+        "ev": -0.1304081447963802,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "42s",
+        "equity": 0.33215,
+        "ev": -0.24204072398190046,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A3o",
+        "equity": 0.42102,
+        "ev": 0.26463891402714956,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K3o",
+        "equity": 0.32681,
+        "ev": -0.27248597285067866,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q3o",
+        "equity": 0.31592,
+        "ev": -0.3345737556561087,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J3o",
+        "equity": 0.31099,
+        "ev": -0.3626814479638011,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T3o",
+        "equity": 0.31339,
+        "ev": -0.3489981900452487,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "93o",
+        "equity": 0.30387,
+        "ev": -0.40327511312217224,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "83o",
+        "equity": 0.29882,
+        "ev": -0.4320669683257917,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "73o",
+        "equity": 0.30615,
+        "ev": -0.3902760180995476,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "63o",
+        "equity": 0.31239,
+        "ev": -0.3546995475113123,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "53o",
+        "equity": 0.31983,
+        "ev": -0.31228144796380086,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "43o",
+        "equity": 0.31526,
+        "ev": -0.3383366515837106,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "33",
+        "equity": 0.47581,
+        "ev": 0.5770162895927601,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "32s",
+        "equity": 0.32694,
+        "ev": -0.2717447963800904,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A2o",
+        "equity": 0.4144,
+        "ev": 0.22689592760181004,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K2o",
+        "equity": 0.31785,
+        "ev": -0.3235701357466062,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q2o",
+        "equity": 0.30546,
+        "ev": -0.39420995475113096,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J2o",
+        "equity": 0.30119,
+        "ev": -0.4185547511312214,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T2o",
+        "equity": 0.30069,
+        "ev": -0.42140542986425344,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "92o",
+        "equity": 0.29831,
+        "ev": -0.434974660633484,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "82o",
+        "equity": 0.29271,
+        "ev": -0.4669022624434388,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "72o",
+        "equity": 0.28873,
+        "ev": -0.4895936651583711,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "62o",
+        "equity": 0.29374,
+        "ev": -0.46102986425339354,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "52o",
+        "equity": 0.30548,
+        "ev": -0.39409592760181,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "42o",
+        "equity": 0.29745,
+        "ev": -0.43987782805429865,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "32o",
+        "equity": 0.28712,
+        "ev": -0.4987728506787329,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "22",
+        "equity": 0.44811,
+        "ev": 0.4190886877828052,
+        "heroAction": "Push",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      }
+    ],
+    "bbCells": [
+      {
+        "hand": "AA",
+        "equity": 0.85218,
+        "ev": 7.043600000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AKs",
+        "equity": 0.67327,
+        "ev": 3.4654000000000007,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AQs",
+        "equity": 0.66237,
+        "ev": 3.2474000000000007,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AJs",
+        "equity": 0.65469,
+        "ev": 3.0938,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "ATs",
+        "equity": 0.64629,
+        "ev": 2.9258000000000006,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A9s",
+        "equity": 0.63235,
+        "ev": 2.6469999999999985,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A8s",
+        "equity": 0.61867,
+        "ev": 2.3734,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A7s",
+        "equity": 0.60732,
+        "ev": 2.1464,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A6s",
+        "equity": 0.59754,
+        "ev": 1.9507999999999992,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A5s",
+        "equity": 0.60272,
+        "ev": 2.054400000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A4s",
+        "equity": 0.58884,
+        "ev": 1.7768000000000015,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A3s",
+        "equity": 0.58068,
+        "ev": 1.6136,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A2s",
+        "equity": 0.57508,
+        "ev": 1.5015999999999998,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AKo",
+        "equity": 0.65117,
+        "ev": 3.0234000000000005,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KK",
+        "equity": 0.82505,
+        "ev": 6.500999999999998,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KQs",
+        "equity": 0.63397,
+        "ev": 2.679400000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KJs",
+        "equity": 0.62498,
+        "ev": 2.499599999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KTs",
+        "equity": 0.6153,
+        "ev": 2.305999999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K9s",
+        "equity": 0.5995,
+        "ev": 1.9900000000000002,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K8s",
+        "equity": 0.58717,
+        "ev": 1.7433999999999994,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K7s",
+        "equity": 0.57434,
+        "ev": 1.4867999999999988,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K6s",
+        "equity": 0.56759,
+        "ev": 1.3518000000000008,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K5s",
+        "equity": 0.55503,
+        "ev": 1.1006,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K4s",
+        "equity": 0.55249,
+        "ev": 1.0498000000000012,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K3s",
+        "equity": 0.54146,
+        "ev": 0.8292000000000002,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K2s",
+        "equity": 0.53268,
+        "ev": 0.6536000000000008,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AQo",
+        "equity": 0.64651,
+        "ev": 2.930200000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KQo",
+        "equity": 0.61498,
+        "ev": 2.2996,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QQ",
+        "equity": 0.80031,
+        "ev": 6.0062,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QJs",
+        "equity": 0.6026,
+        "ev": 2.0519999999999996,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QTs",
+        "equity": 0.59706,
+        "ev": 1.9412000000000003,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q9s",
+        "equity": 0.57836,
+        "ev": 1.5671999999999997,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q8s",
+        "equity": 0.5567,
+        "ev": 1.1340000000000003,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q7s",
+        "equity": 0.54135,
+        "ev": 0.827,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q6s",
+        "equity": 0.53714,
+        "ev": 0.742799999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q5s",
+        "equity": 0.53041,
+        "ev": 0.6082000000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q4s",
+        "equity": 0.52073,
+        "ev": 0.4146000000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q3s",
+        "equity": 0.5095,
+        "ev": 0.1899999999999995,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q2s",
+        "equity": 0.50108,
+        "ev": 0.021599999999999397,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "AJo",
+        "equity": 0.6333,
+        "ev": 2.6660000000000004,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KJo",
+        "equity": 0.61101,
+        "ev": 2.220200000000002,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QJo",
+        "equity": 0.57923,
+        "ev": 1.5846,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "JJ",
+        "equity": 0.77182,
+        "ev": 5.436399999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "JTs",
+        "equity": 0.57174,
+        "ev": 1.434800000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J9s",
+        "equity": 0.55788,
+        "ev": 1.1576000000000004,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J8s",
+        "equity": 0.54103,
+        "ev": 0.8206000000000007,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J7s",
+        "equity": 0.52356,
+        "ev": 0.4711999999999996,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J6s",
+        "equity": 0.50752,
+        "ev": 0.15039999999999942,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J5s",
+        "equity": 0.49984,
+        "ev": -0.0031999999999996476,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J4s",
+        "equity": 0.48792,
+        "ev": -0.24160000000000004,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J3s",
+        "equity": 0.4838,
+        "ev": -0.32399999999999984,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J2s",
+        "equity": 0.47567,
+        "ev": -0.48660000000000103,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "ATo",
+        "equity": 0.6297,
+        "ev": 2.594000000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "KTo",
+        "equity": 0.59964,
+        "ev": 1.992799999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "QTo",
+        "equity": 0.57531,
+        "ev": 1.5061999999999998,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "JTo",
+        "equity": 0.55163,
+        "ev": 1.0325999999999986,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "TT",
+        "equity": 0.75451,
+        "ev": 5.090199999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T9s",
+        "equity": 0.54023,
+        "ev": 0.8046000000000006,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T8s",
+        "equity": 0.52238,
+        "ev": 0.44759999999999955,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T7s",
+        "equity": 0.50354,
+        "ev": 0.0708000000000002,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T6s",
+        "equity": 0.48899,
+        "ev": -0.22020000000000017,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T5s",
+        "equity": 0.47315,
+        "ev": -0.536999999999999,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T4s",
+        "equity": 0.46436,
+        "ev": -0.7127999999999997,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T3s",
+        "equity": 0.45514,
+        "ev": -0.8971999999999998,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T2s",
+        "equity": 0.4477,
+        "ev": -1.0459999999999994,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A9o",
+        "equity": 0.61117,
+        "ev": 2.2234,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K9o",
+        "equity": 0.5757,
+        "ev": 1.5139999999999993,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q9o",
+        "equity": 0.55126,
+        "ev": 1.0252,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J9o",
+        "equity": 0.53848,
+        "ev": 0.7695999999999987,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T9o",
+        "equity": 0.51209,
+        "ev": 0.24180000000000135,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "99",
+        "equity": 0.71886,
+        "ev": 4.377200000000002,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "98s",
+        "equity": 0.5079,
+        "ev": 0.15800000000000125,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "97s",
+        "equity": 0.4892,
+        "ev": -0.2159999999999993,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "96s",
+        "equity": 0.47531,
+        "ev": -0.49380000000000024,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "95s",
+        "equity": 0.45791,
+        "ev": -0.841800000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "94s",
+        "equity": 0.43586,
+        "ev": -1.2828,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "93s",
+        "equity": 0.43351,
+        "ev": -1.3298000000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "92s",
+        "equity": 0.42195,
+        "ev": -1.561,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A8o",
+        "equity": 0.59742,
+        "ev": 1.9483999999999995,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K8o",
+        "equity": 0.55712,
+        "ev": 1.1423999999999985,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q8o",
+        "equity": 0.5392,
+        "ev": 0.7840000000000007,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J8o",
+        "equity": 0.51663,
+        "ev": 0.3326000000000011,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T8o",
+        "equity": 0.49989,
+        "ev": -0.002200000000000202,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "98o",
+        "equity": 0.48156,
+        "ev": -0.36880000000000024,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "88",
+        "equity": 0.69483,
+        "ev": 3.8965999999999994,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "87s",
+        "equity": 0.4795,
+        "ev": -0.41000000000000014,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "86s",
+        "equity": 0.46147,
+        "ev": -0.7706,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "85s",
+        "equity": 0.4428,
+        "ev": -1.1440000000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "84s",
+        "equity": 0.42639,
+        "ev": -1.4722000000000008,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "83s",
+        "equity": 0.40743,
+        "ev": -1.8514,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "82s",
+        "equity": 0.40235,
+        "ev": -1.9529999999999994,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A7o",
+        "equity": 0.59069,
+        "ev": 1.8138000000000005,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K7o",
+        "equity": 0.55056,
+        "ev": 1.0112000000000005,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q7o",
+        "equity": 0.51703,
+        "ev": 0.34060000000000024,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J7o",
+        "equity": 0.49624,
+        "ev": -0.07519999999999882,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T7o",
+        "equity": 0.47997,
+        "ev": -0.40060000000000073,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "97o",
+        "equity": 0.46365,
+        "ev": -0.7270000000000003,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "87o",
+        "equity": 0.45028,
+        "ev": -0.9943999999999988,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "77",
+        "equity": 0.66056,
+        "ev": 3.2112000000000016,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "76s",
+        "equity": 0.45389,
+        "ev": -0.9222000000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "75s",
+        "equity": 0.43612,
+        "ev": -1.2775999999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "74s",
+        "equity": 0.41415,
+        "ev": -1.7169999999999987,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "73s",
+        "equity": 0.39903,
+        "ev": -2.0194,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "72s",
+        "equity": 0.38423,
+        "ev": -2.3153999999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A6o",
+        "equity": 0.58054,
+        "ev": 1.6107999999999993,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K6o",
+        "equity": 0.54422,
+        "ev": 0.8844000000000012,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q6o",
+        "equity": 0.51093,
+        "ev": 0.21860000000000035,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J6o",
+        "equity": 0.47668,
+        "ev": -0.46640000000000015,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T6o",
+        "equity": 0.46306,
+        "ev": -0.7387999999999995,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "96o",
+        "equity": 0.44527,
+        "ev": -1.0945999999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "86o",
+        "equity": 0.43587,
+        "ev": -1.2826000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "76o",
+        "equity": 0.42229,
+        "ev": -1.5541999999999998,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "66",
+        "equity": 0.6347,
+        "ev": 2.694000000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "65s",
+        "equity": 0.43336,
+        "ev": -1.3327999999999989,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "64s",
+        "equity": 0.40898,
+        "ev": -1.8203999999999994,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "63s",
+        "equity": 0.39794,
+        "ev": -2.0412,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "62s",
+        "equity": 0.37577,
+        "ev": -2.4846000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A5o",
+        "equity": 0.57831,
+        "ev": 1.5662000000000003,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K5o",
+        "equity": 0.53163,
+        "ev": 0.6326,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q5o",
+        "equity": 0.50125,
+        "ev": 0.02499999999999858,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J5o",
+        "equity": 0.47483,
+        "ev": -0.503400000000001,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T5o",
+        "equity": 0.43852,
+        "ev": -1.2295999999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "95o",
+        "equity": 0.42821,
+        "ev": -1.4358000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "85o",
+        "equity": 0.41617,
+        "ev": -1.6766000000000005,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "75o",
+        "equity": 0.40092,
+        "ev": -1.9816000000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "65o",
+        "equity": 0.39703,
+        "ev": -2.0594,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "55",
+        "equity": 0.6038,
+        "ev": 2.0760000000000005,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "54s",
+        "equity": 0.41328,
+        "ev": -1.7344000000000008,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "53s",
+        "equity": 0.3955,
+        "ev": -2.09,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "52s",
+        "equity": 0.37846,
+        "ev": -2.4307999999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A4o",
+        "equity": 0.56744,
+        "ev": 1.3488000000000007,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K4o",
+        "equity": 0.52483,
+        "ev": 0.4966000000000008,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q4o",
+        "equity": 0.48933,
+        "ev": -0.21340000000000003,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J4o",
+        "equity": 0.45839,
+        "ev": -0.8322000000000003,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T4o",
+        "equity": 0.43429,
+        "ev": -1.3141999999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "94o",
+        "equity": 0.40858,
+        "ev": -1.8284000000000002,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "84o",
+        "equity": 0.3941,
+        "ev": -2.1180000000000003,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "74o",
+        "equity": 0.38384,
+        "ev": -2.3232,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "64o",
+        "equity": 0.3768,
+        "ev": -2.4639999999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "54o",
+        "equity": 0.37818,
+        "ev": -2.4364,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "44",
+        "equity": 0.57201,
+        "ev": 1.4402000000000008,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "43s",
+        "equity": 0.38628,
+        "ev": -2.2744,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "42s",
+        "equity": 0.36958,
+        "ev": -2.6083999999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A3o",
+        "equity": 0.55625,
+        "ev": 1.125,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K3o",
+        "equity": 0.51458,
+        "ev": 0.29160000000000075,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q3o",
+        "equity": 0.48198,
+        "ev": -0.3604000000000003,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J3o",
+        "equity": 0.45222,
+        "ev": -0.9556000000000004,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T3o",
+        "equity": 0.42845,
+        "ev": -1.431000000000001,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "93o",
+        "equity": 0.39838,
+        "ev": -2.0324,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "83o",
+        "equity": 0.3749,
+        "ev": -2.502,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "73o",
+        "equity": 0.36879,
+        "ev": -2.6242,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "63o",
+        "equity": 0.36327,
+        "ev": -2.7346000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "53o",
+        "equity": 0.35859,
+        "ev": -2.8282,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "43o",
+        "equity": 0.34835,
+        "ev": -3.0330000000000004,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "33",
+        "equity": 0.53872,
+        "ev": 0.7744,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "32s",
+        "equity": 0.36317,
+        "ev": -2.7366,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "A2o",
+        "equity": 0.54989,
+        "ev": 0.9977999999999998,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "K2o",
+        "equity": 0.50091,
+        "ev": 0.018200000000000216,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "Q2o",
+        "equity": 0.4776,
+        "ev": -0.4480000000000004,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "J2o",
+        "equity": 0.4398,
+        "ev": -1.2039999999999988,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "T2o",
+        "equity": 0.4168,
+        "ev": -1.6639999999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "92o",
+        "equity": 0.39068,
+        "ev": -2.186399999999999,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "82o",
+        "equity": 0.36864,
+        "ev": -2.6271999999999993,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "72o",
+        "equity": 0.34677,
+        "ev": -3.0645999999999995,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "62o",
+        "equity": 0.33574,
+        "ev": -3.2852000000000006,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "52o",
+        "equity": 0.34363,
+        "ev": -3.1273999999999997,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "42o",
+        "equity": 0.3291,
+        "ev": -3.418,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "32o",
+        "equity": 0.322,
+        "ev": -3.5599999999999996,
+        "heroAction": "Fold",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      },
+      {
+        "hand": "22",
+        "equity": 0.50401,
+        "ev": 0.0801999999999996,
+        "heroAction": "Call",
+        "opponentAction": "\u2014",
+        "samples": 50000
+      }
+    ],
+    "bestResponseSteps": 5,
+    "converged": false,
+    "stopReason": "Cycle"
+  }
+]

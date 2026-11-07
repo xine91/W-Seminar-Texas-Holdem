@@ -43,7 +43,28 @@
 			</select>
 		</div>
 		<div class="col-auto">
+			<label class="form-label">Session</label>
+			<select asp-for="SelectedSession" class="form-select" onchange="this.form.submit()">
+				<option value="">Alle Sessions</option>
+				@foreach (var s in Model.AllSessions)
+				{
+					<option value="@s">@s</option>
+				}
+			</select>
+		</div>
+		<div class="col-auto">
+			<label class="form-label">Gegnerrange</label>
+			<select asp-for="SelectedRange" class="form-select" onchange="this.form.submit()">
+				<option value="">Alle Ranges</option>
+				@foreach (var rg in Model.AllRanges)
+				{
+					<option value="@rg">@(rg.Length > 40 ? rg[..40] + "…" : rg)</option>
+				}
+			</select>
+		</div>
+		<div class="col-auto">
 			<span class="badge bg-secondary">@Model.TotalSamples Samples</span>
+			<span class="text-muted small">* = wenige Simulationen</span>
 		</div>
 	</form>
 
@@ -83,7 +104,7 @@
 								else cellClass += intensity >= 0.55 ? " heat-high" : intensity >= 0.35 ? " heat-mid" : " heat-low";
 
 								<td class="@cellClass" style="background-color: rgba(@Model.GetColorRgb(cell))"
-									title="@cell.Hand | N=@cell.TotalSamples | Eq=@cell.AvgEquity.ToString("P1") | R=@cell.RaiseRate.ToString("P0") C=@cell.CallRate.ToString("P0") F=@cell.FoldRate.ToString("P0")">
+									title="@Model.FormatTooltip(cell)">
 									<div class="cell-hand">@cell.Hand</div>
 									<div class="cell-value">@Model.FormatCellValue(cell)</div>
 								</td>

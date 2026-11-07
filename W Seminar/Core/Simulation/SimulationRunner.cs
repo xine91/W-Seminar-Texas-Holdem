@@ -1,249 +1,186 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using PokerSimPlatform.Core.Engine;
 using PokerSimPlatform.Core.Models;
 
 namespace PokerSimPlatform.Core.Simulation;
 
+/// <summary>Parameter eines Batch-Laufs.</summary>
+public sealed record SimulationRequest(
+    TableConfig Config,
+    IReadOnlyList<string> StartingHands,
+    IReadOnlyList<string> OpponentRange,
+    int NumOpponents = 1,
+    IReadOnlyList<Card>? Board = null,
+    BettingContext? Betting = null,
+    int? Seed = null,
+    double TargetCiHalfWidth = 0);
+
+public readonly record struct SimulationProgress(int Current, int Total);
+
 /// <summary>
-/// Entscheidungs-Policy: Wandelt Equity + Position in Fold/Call/Raise um.
-/// Vereinfachte Policy (für Simulationszwecke):
-/// - Equity >= 0.55 → Raise
-/// - Equity >= 0.30 → Call
-/// - sonst → Fold
-/// Die Schwellen sind über die Position anpassbar.
+/// Cache für Equity-Ergebnisse. Schlüssel: (Hand, Range, Board, Gegner, Iterationen, Ziel-KI, Seed).
+/// Die Equity hängt nicht von der Position ab → wird pro Hand nur einmal berechnet
+/// und für alle Positionen (und wiederholte Läufe mit gleichem Seed) wiederverwendet.
 /// </summary>
-public sealed class DecisionPolicy
+public sealed class EquityCache
 {
-    public double RaiseThreshold { get; init; } = 0.55;
-    public double CallThreshold { get; init; } = 0.30;
-    public double EWRaiseThreshold { get; init; } = 0.2; // EW > 0.2 → Raise
-    public double EWCallThreshold { get; init; } = -0.1; // EW > -0.1 → Call
+    private const int MaxEntries = 100_000;
+    private readonly ConcurrentDictionary<string, EquityResult> _items = new();
 
-    /// <summary>
-    /// Positionsabhängige Anpassung: Frühe Positionen (UTG) sind konservativer,
-    /// späte (BTN, CO) können mehr Hände spielen.
-    /// </summary>
-    private static readonly Dictionary<TablePosition, (double RaiseT, double CallT)> PositionThresholds = new()
+    public int Count => _items.Count;
+
+    public EquityResult GetOrAdd(string key, Func<EquityResult> factory)
     {
-        { TablePosition.UTG,  (0.65, 0.40) },
-        { TablePosition.UTG1, (0.62, 0.38) },
-        { TablePosition.MP,   (0.58, 0.35) },
-        { TablePosition.MP1,  (0.56, 0.32) },
-        { TablePosition.HJ,   (0.54, 0.30) },
-        { TablePosition.CO,   (0.50, 0.27) },
-        { TablePosition.BTN,  (0.45, 0.24) },
-        { TablePosition.SB,   (0.55, 0.32) },
-        { TablePosition.BB,   (0.45, 0.20) },
-    };
-
-    public PlayerDecision Decide(double equity, TablePosition position)
-    {
-        var (raiseT, callT) = PositionThresholds.TryGetValue(position, out var t)
-            ? t : (RaiseThreshold, CallThreshold);
-
-        if (equity >= raiseT) return PlayerDecision.Raise;
-        if (equity >= callT) return PlayerDecision.Call;
-        return PlayerDecision.Fold;
-    }
-
-    /// <summary>
-    /// Entscheidung basierend auf Expected Value statt Equity.
-    /// Positive EW → Call/Raise, negative EW → Fold.
-    /// </summary>
-    public PlayerDecision DecideByExpectedValue(double expectedValue, TablePosition position)
-    {
-        if (expectedValue >= EWRaiseThreshold) return PlayerDecision.Raise;
-        if (expectedValue >= EWCallThreshold) return PlayerDecision.Call;
-        return PlayerDecision.Fold;
+        if (_items.TryGetValue(key, out var hit)) return hit;
+        var value = factory();
+        if (_items.Count >= MaxEntries) _items.Clear();
+        _items[key] = value;
+        return value;
     }
 }
 
 /// <summary>
-/// Batch-Simulator: Iteriert über alle (Position × Starthand)-Kombinationen,
-/// berechnet Equity, leitet Entscheidung ab und persistiert Ergebnisse.
+/// Batch-Simulator: berechnet Equity je Starthand (parallel, deterministisch über Seed),
+/// leitet je Position die Entscheidung ab und liefert die Ergebnisse (Persistenz erfolgt außerhalb).
 /// </summary>
 public sealed class SimulationRunner
 {
-    private readonly DecisionPolicy _policy = new();
+    private readonly DecisionPolicy _policy;
     private readonly ILogger? _logger;
+    private readonly EquityCache _cache;
 
     public string SessionId { get; } = Guid.NewGuid().ToString("N")[..12];
 
-    public SimulationRunner(ILogger? logger = null)
+    /// <summary>Tatsächlich verwendeter Basis-Seed (zur Reproduktion eines Laufs).</summary>
+    public int Seed { get; private set; }
+
+    public SimulationRunner(ILogger? logger = null, EquityCache? cache = null, DecisionPolicy? policy = null)
     {
         _logger = logger;
+        _cache = cache ?? new EquityCache();
+        _policy = policy ?? new DecisionPolicy();
     }
 
-    /// <summary>
-    /// Führt eine vollständige Batch-Simulation aus.
-    /// </summary>
-    /// <param name="config">Tischkonfiguration</param>
-    /// <param name="startingHands">Starthände (z. B. alle 169 oder eine Auswahl)</param>
-    /// <param name="opponentRange">Gegnerrange (z. B. Top 20% Hände)</param>
-    /// <param name="numOpponents">Anzahl konkreter Gegner in der Hand (1 = Heads-Up)</param>
-    /// <param name="progress">Callback für Fortschritt (current, total)</param>
-    /// <param name="pot">Pot-Größe für EW-Berechnung (optional)</param>
-    /// <param name="callCost">Call-Kosten für EW-Berechnung (optional)</param>
-    public IReadOnlyList<SimulationResult> RunBatch(
-        TableConfig config,
-        IReadOnlyList<string> startingHands,
-        IReadOnlyList<string> opponentRange,
-        int numOpponents = 1,
-        Action<int, int>? progress = null,
-        double pot = 0,
-        double callCost = 0)
+    public IReadOnlyList<SimulationResult> Run(
+        SimulationRequest request,
+        IProgress<SimulationProgress>? progress = null,
+        CancellationToken ct = default)
     {
+        var config = request.Config;
+        Seed = request.Seed ?? Random.Shared.Next();
+
+        var hands = request.StartingHands.Select(StartingHandNotation.Normalize).Distinct().ToList();
+        var opponentRange = request.OpponentRange.Select(StartingHandNotation.Normalize).Distinct().ToList();
+        var pool = EquityCalculator.ExpandRange(opponentRange);
+        double rangeWidth = pool.Count / 1326.0;
+        string rangeKey = string.Join(",", opponentRange);
+
+        var board = ResolveBoard(request);
+        string phase = board.Count switch { 0 => "Preflop", 3 => "Flop", 4 => "Turn", _ => "Endgame" };
+        string? boardText = board.Count == 0 ? null : string.Concat(board.Select(c => c.ToString()));
+
         var sw = Stopwatch.StartNew();
-        _logger?.LogInformation("[SIM {Session}] Starte Batch: {Positions} Positionen × {Hands} Hände × {MC} MC-Iterationen",
-            SessionId, config.Positions.Count, startingHands.Count, config.MonteCarloIterations);
-        Console.WriteLine($"[SIM {SessionId}] Starte Batch: {config.Positions.Count} Positionen × {startingHands.Count} Hände × {config.MonteCarloIterations} Iterationen");
+        _logger?.LogInformation(
+            "[SIM {Session}] Start: {Positions} Positionen, {Hands} Hände, Phase {Phase}, max. {MC} Iterationen, Seed {Seed}",
+            SessionId, config.Positions.Count, hands.Count, phase, config.MonteCarloIterations, Seed);
 
-        var results = new List<SimulationResult>();
-        int total = config.Positions.Count * startingHands.Count;
-        int current = 0;
-        var equityCalc = new EquityCalculator(config.MonteCarloIterations);
+        var equities = new EquityResult?[hands.Count];
+        int done = 0;
+        int logStep = Math.Max(1, hands.Count / 10);
 
+        var options = new ParallelOptions { CancellationToken = ct, MaxDegreeOfParallelism = Environment.ProcessorCount };
+        Parallel.For(0, hands.Count, options, i =>
+        {
+            var hand = hands[i];
+            string key = $"{hand}|{rangeKey}|{boardText}|{request.NumOpponents}|{config.MonteCarloIterations}|{request.TargetCiHalfWidth}|{Seed}";
+            try
+            {
+                equities[i] = _cache.GetOrAdd(key, () =>
+                {
+                    var calc = new EquityCalculator(config.MonteCarloIterations, HandSeed(Seed, hand), request.TargetCiHalfWidth);
+                    return calc.Calculate(hand, pool, request.NumOpponents, board, ct);
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                _logger?.LogWarning("[SIM {Session}] Hand {Hand} übersprungen: {Message}", SessionId, hand, ex.Message);
+            }
+
+            int current = Interlocked.Increment(ref done);
+            progress?.Report(new SimulationProgress(current, hands.Count));
+            if (current % logStep == 0)
+                _logger?.LogInformation("[SIM {Session}] Fortschritt {Current}/{Total}", SessionId, current, hands.Count);
+        });
+
+        var results = new List<SimulationResult>(hands.Count * config.Positions.Count);
         foreach (var position in config.Positions)
         {
-            Console.WriteLine($"  [Position {position}]");
-            foreach (var handNotation in startingHands)
+            for (int i = 0; i < hands.Count; i++)
             {
-                current++;
-                progress?.Invoke(current, total);
+                var eq = equities[i];
+                if (eq == null) continue;
 
-                // Eine konkrete 2-Karten-Variante der Starthand expandieren
-                var expansions = StartingHandNotation.Expand(handNotation);
-                if (expansions.Count == 0) continue;
-                var (c1, c2) = expansions[0];
-                var heroHand = new[] { c1, c2 };
-
-                double equity = numOpponents == 1
-                    ? equityCalc.CalculateEquityHeadsUp(heroHand, opponentRange, config.IncludeFlop)
-                    : equityCalc.CalculateEquityMultiWay(heroHand, opponentRange, numOpponents, config.IncludeFlop);
-
-                var decision = _policy.Decide(equity, position);
-
-                _logger?.LogDebug("[SIM {Session}] {Hand} @ {Pos}: Eq={Equity:P2} → {Decision}", 
-                    SessionId, handNotation, position, equity, decision);
-
-                if (current % 20 == 0)
-                    Console.WriteLine($"    Fortschritt: {current:D3}/{total:D3} | {handNotation} @ {position} | Eq: {equity:P2} → {decision}");
-
-                var expectedValue = pot > 0 || callCost > 0
-                    ? (pot * equity) - (callCost * (1 - equity))
-                    : 0;
-
+                var outcome = _policy.Decide(eq, position, request.Betting, board.Count, request.NumOpponents, rangeWidth);
                 results.Add(new SimulationResult(
                     SessionId: SessionId,
                     Timestamp: DateTime.UtcNow,
                     Position: position,
-                    StartingHand: handNotation,
-                    Decision: decision,
-                    Equity: Math.Round(equity, 6),
-                    NumSimulations: config.MonteCarloIterations,
+                    StartingHand: hands[i],
+                    Decision: outcome.Decision,
+                    Equity: Math.Round(eq.Equity, 6),
+                    NumSimulations: eq.Samples,
                     TableSize: config.TableSize,
-                    NumOpponents: numOpponents,
-                    Phase: config.IncludeFlop ? "Flop" : "Preflop",
-                    ExpectedValue: Math.Round(expectedValue, 6),
-                    Pot: pot,
-                    CallCost: callCost
-                ));
+                    NumOpponents: request.NumOpponents,
+                    Phase: phase,
+                    ExpectedValue: Math.Round(outcome.EvCall, 6),
+                    Pot: request.Betting?.Pot ?? 0,
+                    CallCost: request.Betting?.CallCost ?? 0,
+                    Board: boardText,
+                    EquityStdError: Math.Round(eq.StdError, 6),
+                    ExpectedValueStdError: Math.Round(outcome.EvCallStdError, 6),
+                    ExpectedValueRaise: Math.Round(outcome.EvRaise, 6),
+                    OpponentRange: rangeKey));
             }
         }
 
         sw.Stop();
-        _logger?.LogInformation("[SIM {Session}] Batch abgeschlossen: {Count} Ergebnisse in {ElapsedMs}ms",
-            SessionId, results.Count, sw.ElapsedMilliseconds);
-        Console.WriteLine($"[SIM {SessionId}] ✓ Batch abgeschlossen: {results.Count} Ergebnisse in {sw.ElapsedMilliseconds}ms");
-
+        _logger?.LogInformation("[SIM {Session}] Fertig: {Count} Ergebnisse in {Ms} ms (Cache: {Cache})",
+            SessionId, results.Count, sw.ElapsedMilliseconds, _cache.Count);
         return results;
     }
 
     /// <summary>
-    /// Batch-Simulation für ENDGAME: Board-Karten sind vollständig bekannt (5 Karten).
-    /// Keine Monte-Carlo-Simulation nötig - direkter Vergleich gegen alle Opponent-Hände.
+    /// Bestimmt das feste Board: explizit übergeben, oder – bei IncludeFlop ohne Board – ein
+    /// seed-deterministischer Zufallsflop (3 Karten); Turn und River werden dann simuliert.
     /// </summary>
-    public IReadOnlyList<SimulationResult> RunBatchEndgame(
-        TableConfig config,
-        IReadOnlyList<string> startingHands,
-        IReadOnlyList<string> opponentRange,
-        IReadOnlyList<Card> board,
-        int numOpponents = 1,
-        Action<int, int>? progress = null,
-        double pot = 0,
-        double callCost = 0)
+    private IReadOnlyList<Card> ResolveBoard(SimulationRequest request)
     {
-        if (board.Count != 5)
-            throw new ArgumentException("Board muss genau 5 Karten enthalten.", nameof(board));
-
-        var sw = Stopwatch.StartNew();
-        _logger?.LogInformation("[SIM {Session}] Starte Endgame-Batch: {Positions} Positionen × {Hands} Hände (deterministisch, kein MC)",
-            SessionId, config.Positions.Count, startingHands.Count);
-        Console.WriteLine($"[SIM {SessionId}] Starte Endgame-Batch: {config.Positions.Count} Positionen × {startingHands.Count} Hände (deterministisch)");
-
-        var results = new List<SimulationResult>();
-        int total = config.Positions.Count * startingHands.Count;
-        int current = 0;
-        var equityCalc = new EquityCalculator(config.MonteCarloIterations);
-
-        foreach (var position in config.Positions)
+        var board = request.Board ?? Array.Empty<Card>();
+        if (request.Config.IncludeFlop && board.Count == 0)
         {
-            Console.WriteLine($"  [Position {position}]");
-            foreach (var handNotation in startingHands)
-            {
-                current++;
-                progress?.Invoke(current, total);
-
-                // Eine konkrete 2-Karten-Variante der Starthand expandieren
-                var expansions = StartingHandNotation.Expand(handNotation);
-                if (expansions.Count == 0) continue;
-                var (c1, c2) = expansions[0];
-                var heroHand = new[] { c1, c2 };
-
-                // Endgame: Deterministischer Vergleich (kein MC nötig)
-                double equity = numOpponents == 1
-                    ? equityCalc.CalculateEquityHeadsUpEndgame(heroHand, opponentRange, board)
-                    : equityCalc.CalculateEquityMultiWayEndgame(heroHand, opponentRange, numOpponents, board);
-
-                var decision = _policy.Decide(equity, position);
-
-                _logger?.LogDebug("[SIM {Session}] {Hand} @ {Pos}: Eq={Equity:P2} → {Decision}",
-                    SessionId, handNotation, position, equity, decision);
-
-                if (current % 20 == 0)
-                    Console.WriteLine($"    Fortschritt: {current:D3}/{total:D3} | {handNotation} @ {position} | Eq: {equity:P2} → {decision}");
-
-                var expectedValue = pot > 0 || callCost > 0
-                    ? (pot * equity) - (callCost * (1 - equity))
-                    : 0;
-
-                results.Add(new SimulationResult(
-                    SessionId: SessionId,
-                    Timestamp: DateTime.UtcNow,
-                    Position: position,
-                    StartingHand: handNotation,
-                    Decision: decision,
-                    Equity: Math.Round(equity, 6),
-                    NumSimulations: config.MonteCarloIterations,
-                    TableSize: config.TableSize,
-                    NumOpponents: numOpponents,
-                    Phase: "Endgame",
-                    ExpectedValue: Math.Round(expectedValue, 6),
-                    Pot: pot,
-                    CallCost: callCost
-                ));
-            }
+            var deck = new Deck(new Random(unchecked(Seed * 31 + 7)));
+            return new[] { deck.Draw(), deck.Draw(), deck.Draw() };
         }
+        if (request.Config.IncludeFlop && board.Count != 3)
+            throw new ArgumentException("Flop-Phase erfordert genau 3 Board-Karten.", nameof(request));
+        return board;
+    }
 
-        sw.Stop();
-        _logger?.LogInformation("[SIM {Session}] Endgame-Batch abgeschlossen: {Count} Ergebnisse in {ElapsedMs}ms",
-            SessionId, results.Count, sw.ElapsedMilliseconds);
-        Console.WriteLine($"[SIM {SessionId}] ✓ Endgame-Batch abgeschlossen: {results.Count} Ergebnisse in {sw.ElapsedMilliseconds}ms");
-
-        return results;
+    /// <summary>Stabiler Seed pro Hand (string.GetHashCode ist pro Prozess randomisiert und daher ungeeignet).</summary>
+    private static int HandSeed(int baseSeed, string hand)
+    {
+        unchecked
+        {
+            uint h = 2166136261;
+            foreach (char c in hand) h = (h ^ c) * 16777619;
+            return (int)(h ^ (uint)baseSeed);
+        }
     }
 }

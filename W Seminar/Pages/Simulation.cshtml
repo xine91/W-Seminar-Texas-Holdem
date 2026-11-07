@@ -2,162 +2,159 @@
 @using PokerSimPlatform.Core.Models
 @model W_Seminar.Pages.SimulationModel
 @{
-	ViewData["Title"] = "Simulation starten";
+    ViewData["Title"] = "Simulation starten";
 }
 
 <div class="container py-4">
-	<h1>Simulation konfigurieren</h1>
-	<p class="text-muted">
-		Batch-Lauf über alle 169 Starthände × aktive Positionen.
-		Equity wird per Monte-Carlo gegen die konfigurierte Gegnerrange berechnet.
-	</p>
+    <h1>Simulation konfigurieren</h1>
+    <p class="text-muted">
+        Batch-Lauf über alle 169 Starthände × aktive Positionen. Die Berechnung läuft im Hintergrund,
+        der Fortschritt wird live angezeigt.
+    </p>
 
-	<div class="row">
-		<div class="col-md-6">
-			<form method="post" class="card card-body">
-				@Html.AntiForgeryToken()
-				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" class="card card-body">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="All" class="text-danger"></div>
 
-				<div class="mb-3">
-					<label class="form-label">Tischgröße</label>
-					<select asp-for="Input.TableSize" class="form-select">
-						<option value="6">6-max</option>
-						<option value="9">9-max</option>
-					</select>
-				</div>
+                <div class="mb-3">
+                    <label class="form-label">Tischgröße</label>
+                    <select asp-for="Input.TableSize" class="form-select">
+                        <option value="6">6-max</option>
+                        <option value="9">9-max</option>
+                    </select>
+                </div>
 
-				<div class="mb-3">
-					<label class="form-label">Phase</label>
-					<select asp-for="Input.Phase" class="form-select">
-						<option value="Preflop">Preflop</option>
-						<option value="Flop">Flop (3 Board-Karten)</option>
-						<option value="Endgame">Endgame (5 Board-Karten)</option>
-					</select>
-				</div>
+                <div class="mb-3">
+                    <label class="form-label">Phase</label>
+                    <input type="text" class="form-control" value="Preflop" readonly />
+                    <input type="hidden" asp-for="Input.Phase" value="Preflop" />
+                </div>
 
-				<div class="mb-3">
-					<label class="form-label">Gegnerrange (Komma-getrennt, Poker-Notation)</label>
-					<textarea asp-for="Input.OpponentRange" class="form-control" rows="4"
-						placeholder="AA,KK,QQ,AKs,AQs,AKo,AQo"></textarea>
-					<div class="form-text">
-						Beispiele: <code>AA,KK,QQ,JJ,TT,AKs,AQs,AJs,AKo,AQo</code> (Top 10)
-						oder leer lassen für Standard-Range (Top 20%).
-					</div>
-				</div>
+                <div class="mb-3">
+                    <label class="form-label">Gegnerrange (Komma-getrennt, Poker-Notation)</label>
+                    <textarea asp-for="Input.OpponentRange" class="form-control" rows="4"
+                        placeholder="AA,KK,QQ,AKs,AQs,AKo,AQo"></textarea>
+                    <div class="form-text">Leer lassen für Standard-Range (Top ~20 %). Ungültige Notationen werden gemeldet.</div>
+                </div>
 
-				<div class="mb-3">
-					<label class="form-label">Anzahl Monte-Carlo-Iterationen pro Hand</label>
-					<input asp-for="Input.MonteCarloIterations" type="number" min="50" max="20000" step="50" class="form-control" />
-				</div>
+                <div class="mb-3">
+                    <label class="form-label">Max. Monte-Carlo-Iterationen pro Hand</label>
+                    <input asp-for="Input.MonteCarloIterations" type="number" min="50" max="200000" step="50" class="form-control" />
+                </div>
 
-				<div class="mb-3">
-					<label class="form-label">Anzahl Gegner</label>
-					<input asp-for="Input.NumOpponents" type="number" min="1" max="8" class="form-control" />
-				</div>
+                <div class="mb-3">
+                    <label class="form-label">Anzahl Gegner</label>
+                    <input asp-for="Input.NumOpponents" type="number" min="1" max="8" class="form-control" />
+                </div>
 
-				<div class="mb-3">
-					<label class="form-label">Starthand-Filter (optional, leer = alle 169)</label>
-					<input asp-for="Input.HandFilter" class="form-control" placeholder="z. B. AA,KK,QQ,AKs" />
-				</div>
+                <div class="mb-3">
+                    <label class="form-label">Starthand-Filter (optional, leer = alle 169)</label>
+                    <input asp-for="Input.HandFilter" class="form-control" placeholder="z. B. AA,KK,QQ,AKs" />
+                </div>
 
-				<hr class="my-4" />
-				<h6>Expected Value Parameter</h6>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Seed (leer = zufällig)</label>
+                        <input asp-for="Input.Seed" type="number" class="form-control" />
+                        <div class="form-text">Gleicher Seed = reproduzierbares Ergebnis.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Ziel-Konfidenzintervall (±, 0 = aus)</label>
+                        <input asp-for="Input.TargetCiHalfWidth" type="number" step="0.005" min="0" max="0.5" class="form-control" />
+                        <div class="form-text">Stoppt früh, wenn das 95%-Konfidenzintervall schmal genug ist.</div>
+                    </div>
+                </div>
 
-				<div class="row">
-					<div class="col-md-6">
-						<div class="mb-3">
-							<label class="form-label">Small Blind</label>
-							<input asp-for="Input.SmallBlind" type="number" step="0.1" min="0" class="form-control" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="mb-3">
-							<label class="form-label">Big Blind</label>
-							<input asp-for="Input.BigBlind" type="number" step="0.1" min="0" class="form-control" />
-						</div>
-					</div>
-				</div>
+                <hr class="my-3" />
+                <h6>Expected Value Parameter</h6>
 
-				<div class="row">
-					<div class="col-md-6">
-						<div class="mb-3">
-							<label class="form-label">Pot (aktuell)</label>
-							<input asp-for="Input.Pot" type="number" step="0.1" min="0" class="form-control" />
-							<div class="form-text">Größe des Pots bevor Sie callen müssen</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="mb-3">
-							<label class="form-label">Call-Kosten</label>
-							<input asp-for="Input.CallCost" type="number" step="0.1" min="0" class="form-control" />
-							<div class="form-text">Wie viel müssen Sie callen?</div>
-						</div>
-					</div>
-				</div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Small Blind</label>
+                        <input asp-for="Input.SmallBlind" type="number" step="0.1" min="0" class="form-control" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Big Blind</label>
+                        <input asp-for="Input.BigBlind" type="number" step="0.1" min="0" class="form-control" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Pot (vor dem Call)</label>
+                        <input asp-for="Input.Pot" type="number" step="0.1" min="0" class="form-control" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Call-Kosten</label>
+                        <input asp-for="Input.CallCost" type="number" step="0.1" min="0" class="form-control" />
+                    </div>
+                </div>
 
-				<div class="mb-3" id="boardInputContainer" style="display: none;">
-					<label class="form-label">Board (5 Karten, Endgame)</label>
-					<input asp-for="Input.Board" class="form-control" placeholder="z. B. AsKhQd2c3h" />
-					<div class="form-text">
-						Board-Karten in Poker-Notation (z.B. AsKhQd2c3h = Pik-As, Herz-König, Karo-Dame, Kreuz-Zwei, Herz-Drei)
-					</div>
-				</div>
+                <details class="mb-3">
+                    <summary>Erweiterte EV-Parameter</summary>
+                    <div class="row mt-2">
+                        <div class="col-md-6 mb-2"><label class="form-label">Effektiver Stack</label><input asp-for="Input.EffectiveStack" type="number" step="1" min="0" class="form-control" /></div>
+                        <div class="col-md-6 mb-2"><label class="form-label">Raise-Größe (0 = Pot-Size)</label><input asp-for="Input.RaiseSize" type="number" step="0.1" min="0" class="form-control" /></div>
+                        <div class="col-md-6 mb-2"><label class="form-label">Rake (%)</label><input asp-for="Input.RakePercent" type="number" step="0.5" min="0" max="100" class="form-control" /></div>
+                        <div class="col-md-6 mb-2"><label class="form-label">Rake-Cap (0 = keins)</label><input asp-for="Input.RakeCap" type="number" step="0.1" min="0" class="form-control" /></div>
+                        <div class="col-md-6 mb-2"><label class="form-label">Implied Odds (0..1)</label><input asp-for="Input.ImpliedOddsFactor" type="number" step="0.01" min="0" max="1" class="form-control" /></div>
+                        <div class="col-md-6 mb-2"><label class="form-label">Fold Equity pro Gegner (%)</label><input asp-for="Input.FoldEquityPercent" type="number" step="1" min="0" max="100" class="form-control" placeholder="Schätzung" /></div>
+                    </div>
+                </details>
 
-				<button type="submit" class="btn btn-primary">Simulation starten</button>
-			</form>
-		</div>
+                <button type="submit">Start</button>
+            </form>
+        </div>
 
-		<div class="col-md-6">
-			@if (Model.Result != null)
-			{
-				<div class="alert alert-success">
-					<h5 class="alert-heading">Simulation abgeschlossen</h5>
-					<ul class="mb-0">
-						<li>Session-ID: <code>@Model.Result.SessionId</code></li>
-						<li>Samples geschrieben: <strong>@Model.Result.SamplesWritten</strong></li>
-						<li>Dauer: @Model.Result.DurationSeconds.ToString("F2") s</li>
-						<li>JSON-Datei: <code>@Model.Result.FilePath</code></li>
-					</ul>
-					<hr />
-					<a asp-page="/Matrix" class="btn btn-sm btn-outline-primary">Matrix ansehen</a>
-					<a asp-page="/Results" class="btn btn-sm btn-outline-secondary">Rohdaten</a>
-				</div>
-			}
-			else if (Model.IsRunning)
-			{
-				<div class="alert alert-info">
-					Simulation läuft… (dies kann je nach Iterationszahl einige Sekunden dauern)
-				</div>
-			}
+        <div class="col-md-6">
+            @if (Model.JobId != null)
+            {
+                <div class="card card-body" id="jobPanel" data-job-id="@Model.JobId">
+                    <h5>Job <code>@Model.JobId</code></h5>
+                    <div class="progress mb-2"><div id="jobBar" class="progress-bar" style="width:0%">0%</div></div>
+                    <div id="jobStatus" class="mb-2">Warte auf Start…</div>
+                    <div id="jobDetails" class="small text-muted"></div>
+                    <div class="mt-2">
+                        <button type="button" id="cancelBtn" class="btn btn-sm btn-outline-danger">Abbrechen</button>
+                        <a asp-page="/Matrix" id="matrixLink" class="btn btn-sm btn-outline-primary d-none">Matrix ansehen</a>
+                        <a asp-page="/Results" id="resultsLink" class="btn btn-sm btn-outline-secondary d-none">Rohdaten</a>
+                    </div>
+                    <div class="small text-muted mt-2">Datei: <code>@Model.FilePath</code></div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
-			@* <div class="card mt-3">
-				<div class="card-body">
-					<h6>Hinweise zur Performance</h6>
-					<ul class="small mb-0">
-											
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						</div> *@
-
-						<script>
-							// Board-Input nur bei Endgame sichtbar machen
-							const phaseSelect = document.querySelector('[asp-for="Input.Phase"]');
-							const boardContainer = document.getElementById('boardInputContainer');
-
-							function updateBoardVisibility() {
-								if (phaseSelect && boardContainer) {
-									boardContainer.style.display = phaseSelect.value === 'Endgame' ? 'block' : 'none';
-								}
-							}
-
-							// Initial call
-							updateBoardVisibility();
-
-							// Listener
-							if (phaseSelect) {
-								phaseSelect.addEventListener('change', updateBoardVisibility);
-							}
-						</script>
+@section Scripts {
+    <script>
+        const panel = document.getElementById('jobPanel');
+        if (panel) {
+            const id = panel.dataset.jobId;
+            const bar = document.getElementById('jobBar');
+            const status = document.getElementById('jobStatus');
+            const details = document.getElementById('jobDetails');
+            const es = new EventSource(`/api/simulations/${id}/events`);
+            es.onmessage = e => {
+                const s = JSON.parse(e.data);
+                const pct = s.total > 0 ? Math.round(100 * s.current / s.total) : 0;
+                bar.style.width = pct + '%';
+                bar.textContent = pct + '%';
+                status.textContent = `${s.status}: ${s.current}/${s.total} Hände`;
+                details.textContent = s.sessionId ? `Session ${s.sessionId}` + (s.seed != null ? ` | Seed ${s.seed}` : '') : '';
+                if (s.isFinished) {
+                    es.close();
+                    document.getElementById('cancelBtn').classList.add('d-none');
+                    if (s.status === 'Completed') {
+                        status.textContent = `Fertig: ${s.written} Ergebnisse in ${s.durationSeconds.toFixed(2)} s`;
+                        document.getElementById('matrixLink').classList.remove('d-none');
+                        document.getElementById('resultsLink').classList.remove('d-none');
+                    } else if (s.status === 'Failed') {
+                        status.textContent = 'Fehler: ' + s.error;
+                    }
+                }
+            };
+            document.getElementById('cancelBtn').addEventListener('click',
+                () => fetch(`/api/simulations/${id}/cancel`, { method: 'POST' }));
+        }
+    </script>
+}

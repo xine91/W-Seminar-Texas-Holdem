@@ -45,6 +45,36 @@ public static class StartingHandNotation
     }
 
     /// <summary>
+    /// Bringt eine Notation in kanonische Form (höherer Rang zuerst, Großbuchstaben, s/o klein),
+    /// z. B. "kas" → "AKs", "tt" → "TT". Wirft ArgumentException bei ungültiger Notation.
+    /// </summary>
+    public static string Normalize(string notation)
+    {
+        if (string.IsNullOrWhiteSpace(notation))
+            throw new ArgumentException("Leere Notation.", nameof(notation));
+        notation = notation.Trim();
+        if (notation.Length is not (2 or 3))
+            throw new ArgumentException($"Ungültige Notation: '{notation}'", nameof(notation));
+
+        int r1 = CharToRank(notation[0]);
+        int r2 = CharToRank(notation[1]);
+        if (notation.Length == 2)
+        {
+            if (r1 != r2) throw new ArgumentException($"'{notation}' ist kein gültiges Paar.", nameof(notation));
+            return $"{Ranks[r1 - MinRank]}{Ranks[r1 - MinRank]}";
+        }
+
+        char suffix = char.ToLowerInvariant(notation[2]);
+        if (suffix != 's' && suffix != 'o')
+            throw new ArgumentException($"Notation muss mit 's' oder 'o' enden: '{notation}'", nameof(notation));
+        if (r1 == r2)
+            throw new ArgumentException($"'{notation}' ist ein Paar; Paare haben kein s/o-Suffix.", nameof(notation));
+
+        int hi = Math.Max(r1, r2), lo = Math.Min(r1, r2);
+        return $"{Ranks[hi - MinRank]}{Ranks[lo - MinRank]}{suffix}";
+    }
+
+    /// <summary>
     /// Parst eine Starthand-Notation in 1 oder 2 konkrete Karten-Tupel.
     /// Beispiel: "AKs" → [(A♠,K♠), (A♥,K♥), (A♦,K♦), (A♣,K♣)] (4 Kombinationen).
     /// </summary>

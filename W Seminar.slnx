@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="PokerSimPlatform.Tests/PokerSimPlatform.Tests.csproj" />
+  <Project Path="W Seminar.Tests/W Seminar.Tests.csproj" />
   <Project Path="W Seminar/W Seminar.csproj" />
 </Solution>

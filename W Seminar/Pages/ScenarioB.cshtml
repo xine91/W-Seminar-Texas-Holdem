@@ -1,0 +1,167 @@
+@page
+@model W_Seminar.Pages.ScenarioBModel
+@{
+    ViewData["Title"] = "Szenario B – Push/Fold";
+}
+
+<div class="container py-4">
+    <h1>Szenario B: Push/Fold, Heads-up</h1>
+    <p class="text-muted">SB und BB mitteln ihre Best Responses. Anfangs pusht SB 100 %; BB startet mit der eingegebenen Range. Die Berechnung kann lange dauern.</p>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <form method="post" class="card card-body">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Input.HeroHand" class="form-label">SB-Hand</label>
+                    <input asp-for="Input.HeroHand" class="form-control" />
+                    <span asp-validation-for="Input.HeroHand" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Input.OpponentRange" class="form-label">Anfängliche BB Call-Range</label>
+                    <textarea asp-for="Input.OpponentRange" class="form-control" rows="3"></textarea>
+                    <div class="form-text">Kommagetrennte Poker-Notation, z. B. AA,KK,AJs,KQs,AKo.</div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Input.Stack" class="form-label">Effektiver Stack S (bb)</label>
+                    <input asp-for="Input.Stack" type="number" step="1" min="1" max="1000" class="form-control" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.Iterations" class="form-label">Monte-Carlo-Iterationen</label>
+                        <input asp-for="Input.Iterations" type="number" min="50000" max="200000" step="1" class="form-control" />
+                    </div>
+                <div class="mb-3">
+                    <label asp-for="Input.MaxSteps" class="form-label">Maximale Best-Response-Schritte</label>
+                    <input asp-for="Input.MaxSteps" type="number" min="1" max="100" step="1" class="form-control" />
+                </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.Seed" class="form-label">Seed</label>
+                        <input asp-for="Input.Seed" type="number" class="form-control" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Szenario B berechnen</button>
+            </form>
+        </div>
+
+        <div class="col-lg-6">
+            @if (Model.ErrorMessage != null)
+            {
+                <div class="alert alert-danger">@Model.ErrorMessage</div>
+            }
+            @if (Model.IterationResult is { } iteration)
+            {
+                <div class="card card-body mt-3">
+                    <h2 class="h5">Best-Response-Ergebnis</h2>
+                    <p><strong>Schritte:</strong> @iteration.Steps; <strong>Aggregierte Anteile stabil:</strong> @(iteration.Converged ? "Ja" : "Nein") (@iteration.StopReason)</p>
+                    <p><strong>P_F im letzten Schritt:</strong> @iteration.FoldProbability.ToString("P2")</p>
+                    <p><strong>SB Push-Anteil:</strong> @iteration.History[^1].PushShare.ToString("P2")</p>
+                    <small class="text-muted">P_F = 1 − gewichtete Call-Kombinationen / 1326, ohne kartenabhängige Blocker. Ein kleiner Unterschied der Gesamtanteile beweist weder Konvergenz der einzelnen Hände noch ein Nash-Gleichgewicht.</small>
+                    <details class="mt-2">
+                        <summary>Verlauf anzeigen</summary>
+                        <table class="table table-sm"><thead><tr><th>Schritt</th><th>P_F</th><th>SB Push-Anteil</th></tr></thead><tbody>
+                        @foreach (var entry in iteration.History)
+                        {
+                            <tr><td>@entry.Step</td><td>@entry.FoldProbability.ToString("P2")</td><td>@entry.PushShare.ToString("P2")</td></tr>
+                        }
+                        </tbody></table>
+                    </details>
+                </div>
+            }
+            @if (Model.Result is { } result)
+            {
+                <div class="card card-body">
+                    <h2 class="h5">Ergebnis</h2>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-7">Monte-Carlo-Equity E</dt>
+                        <dd class="col-sm-5">@result.Equity.ToString("P2")</dd>
+                        <dt class="col-sm-7">EV Push</dt>
+                        <dd class="col-sm-5">@result.EvPush.ToString("F3") bb</dd>
+                        <dt class="col-sm-7">EV Fold</dt>
+                        <dd class="col-sm-5">@result.EvFold.ToString("F3") bb</dd>
+                        <dt class="col-sm-7">Best Response / Push-Frequenz</dt>
+                        <dd class="col-sm-5">@Model.HeroCell?.HeroAction / @((Model.HeroCell?.ActionFrequency ?? 0).ToString("P1"))</dd>
+                    </dl>
+                </div>
+            }
+        </div>
+    </div>
+
+    @if (Model.Cells is { } cells)
+    {
+        @if (Model.SavedRunId != null)
+        {
+            <div class="alert alert-success">Ergebnisse gespeichert: <code>@Model.ScenarioFilePath</code>, RunId: <code>@Model.SavedRunId</code>.</div>
+        }
+        <h2 class="h4 mt-4">13×13-Matrix: SB Push/Fold</h2>
+        <div class="matrix-wrapper">
+            <table class="poker-matrix">
+                <thead>
+                    <tr>
+                        <th class="corner"></th>
+                        @foreach (var rank in Model.Ranks)
+                        {
+                            <th class="rank-header">@rank</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int row = 0; row < 13; row++)
+                    {
+                        <tr>
+                            <th class="rank-header">@Model.Ranks[row]</th>
+                            @for (int column = 0; column < 13; column++)
+                            {
+                                var cell = cells[row, column];
+                                <td class="matrix-cell" style="background-color: rgb(@Model.GetColorRgb(cell))"
+                                    title="@cell.Hand: E=@cell.Equity.ToString("P2"), EV Push=@cell.Ev.ToString("F3") bb, SB=@cell.HeroAction">
+                                    <div class="cell-hand">@cell.Hand</div>
+                                    <div class="cell-value">@Model.FormatCellValue(cell)</div>
+                                    <div class="cell-value">@((cell.ActionFrequency ?? 0).ToString("P0")) @cell.HeroAction</div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <small class="text-muted">Zellwert: Equity, EV Push und gemittelte Push-Frequenz; Indifferent = ±0,01 bb um EV Fold.</small>
+    }
+    @if (Model.BbCells is { } bbCells)
+    {
+        <h2 class="h4 mt-4">13×13-Matrix: BB Call/Fold</h2>
+        <p class="text-muted">BB-Equity gegen die gewichtete SB Push-Range. EV Call = 2S · E(BB) − S; Toleranz ±0,01 bb um EV Fold = −1 bb.</p>
+        <div class="matrix-wrapper">
+            <table class="poker-matrix">
+                <thead>
+                    <tr>
+                        <th class="corner"></th>
+                        @foreach (var rank in Model.Ranks)
+                        {
+                            <th class="rank-header">@rank</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int row = 0; row < 13; row++)
+                    {
+                        <tr>
+                            <th class="rank-header">@Model.Ranks[row]</th>
+                            @for (int column = 0; column < 13; column++)
+                            {
+                                var cell = bbCells[row, column];
+                                <td class="matrix-cell" style="background-color: rgb(@Model.GetColorRgb(cell))"
+                                    title="@cell.Hand: E(BB)=@cell.Equity.ToString("P2"), EV Call=@cell.Ev.ToString("F3") bb, BB=@cell.HeroAction">
+                                    <div class="cell-hand">@cell.Hand</div>
+                                    <div class="cell-value">@Model.FormatCellValue(cell)</div>
+                                    <div class="cell-value">@((cell.ActionFrequency ?? 0).ToString("P0")) @cell.HeroAction</div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <small class="text-muted">Zellwert: BB-Equity, EV Call und gemittelte Call-Frequenz.</small>
+    }
+</div>

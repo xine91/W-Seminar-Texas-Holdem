@@ -1,0 +1,118 @@
+@page
+@model W_Seminar.Pages.ScenarioCModel
+@{
+    ViewData["Title"] = "Szenario C – RFI";
+}
+
+<div class="container py-4">
+    <h1>Szenario C: RFI, 6-max</h1>
+    <p class="text-muted">Monte-Carlo-Equity gegen die Call-Range und die separate RFI-Formel.</p>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <form method="post" class="card card-body">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Input.HeroHand" class="form-label">Hero-Hand</label>
+                    <input asp-for="Input.HeroHand" class="form-control" />
+                    <span asp-validation-for="Input.HeroHand" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Input.OpponentCallRange" class="form-label">Call-Range des Gegners</label>
+                    <textarea asp-for="Input.OpponentCallRange" class="form-control" rows="3"></textarea>
+                    <div class="form-text">Kommagetrennte Poker-Notation, z. B. 22+,AJs+,KQs,AKo.</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.OpenSize" class="form-label">Open-Größe x (bb)</label>
+                        <input asp-for="Input.OpenSize" type="number" step="0.1" min="0" class="form-control" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.DeadMoney" class="form-label">Dead Money B (bb)</label>
+                        <input asp-for="Input.DeadMoney" type="number" step="0.1" min="0" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.FoldProbability" class="form-label">Fold-Wahrscheinlichkeit P_F</label>
+                        <input asp-for="Input.FoldProbability" type="number" step="0.01" min="0" max="1" class="form-control" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.Realization" class="form-label">Realisierungsfaktor R</label>
+                        <input asp-for="Input.Realization" type="number" step="0.01" min="0" max="1" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.Iterations" class="form-label">Monte-Carlo-Iterationen</label>
+                        <input asp-for="Input.Iterations" type="number" min="50" max="200000" step="50" class="form-control" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Input.Seed" class="form-label">Seed</label>
+                        <input asp-for="Input.Seed" type="number" class="form-control" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Szenario C berechnen</button>
+            </form>
+        </div>
+
+        <div class="col-lg-6">
+            @if (Model.ErrorMessage != null)
+            {
+                <div class="alert alert-danger">@Model.ErrorMessage</div>
+            }
+            @if (Model.Result is { } result)
+            {
+                <div class="card card-body">
+                    <h2 class="h5">Ergebnis</h2>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-8">Monte-Carlo-Equity E</dt>
+                        <dd class="col-sm-4">@result.Equity.ToString("P2")</dd>
+                        <dt class="col-sm-8">EV Raise</dt>
+                        <dd class="col-sm-4">@result.EvRaise.ToString("F3") bb</dd>
+                        <dt class="col-sm-8">Aktion</dt>
+                        <dd class="col-sm-4">@(result.Raise ? "Raise" : "Fold")</dd>
+                    </dl>
+                </div>
+            }
+        </div>
+    </div>
+
+    @if (Model.Cells is { } cells)
+    {
+        <div class="alert alert-success">Результаты сохранены в <code>@Model.ScenarioFilePath</code>, RunId: <code>@Model.SavedRunId</code>.</div>
+        <h2 class="h4 mt-4">13×13-Matrix: RFI Raise/Fold</h2>
+        <div class="matrix-wrapper">
+            <table class="poker-matrix">
+                <thead>
+                    <tr>
+                        <th class="corner"></th>
+                        @foreach (var rank in Model.Ranks)
+                        {
+                            <th class="rank-header">@rank</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int row = 0; row < 13; row++)
+                    {
+                        <tr>
+                            <th class="rank-header">@Model.Ranks[row]</th>
+                            @for (int column = 0; column < 13; column++)
+                            {
+                                var cell = cells[row, column];
+                                <td class="matrix-cell" style="background-color: rgb(@Model.GetColorRgb(cell))"
+                                    title="@cell.Hand: E=@cell.Equity.ToString("P2"), EV=@cell.Ev.ToString("F3") bb, Aktion=@cell.HeroAction">
+                                    <div class="cell-hand">@cell.Hand</div>
+                                    <div class="cell-value">@Model.FormatCellValue(cell)</div>
+                                    <div class="cell-value">@cell.HeroAction</div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <small class="text-muted">В клетке: Equity, EV Raise и решение Hero.</small>
+    }
+</div>

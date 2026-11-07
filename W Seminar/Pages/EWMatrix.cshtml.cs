@@ -28,20 +28,28 @@ public class EWMatrixModel : PageModel
 
     public int TotalSamples { get; private set; }
 
+    [BindProperty(SupportsGet = true)]
+    public string? SelectedSession { get; set; }
+
+    [BindProperty(SupportsGet = true)]
+    public string? SelectedRange { get; set; }
+
+    public IReadOnlyList<string> AllSessions { get; private set; } = Array.Empty<string>();
+    public IReadOnlyList<string> AllRanges { get; private set; } = Array.Empty<string>();
+
     public void OnGet()
     {
         var all = _store.LoadAll();
-
-        // Phasen-Filter
-        if (SelectedPhase != "Alle")
-            all = all.Where(r => r.Phase == SelectedPhase).ToList();
+        AllSessions = all.Select(r => r.SessionId).Distinct().OrderByDescending(s => s).ToList();
+        AllRanges = all.Select(r => r.OpponentRange).Where(r => !string.IsNullOrEmpty(r)).Select(r => r!).Distinct().ToList();
 
         TablePosition? posFilter = null;
         if (!string.IsNullOrEmpty(SelectedPosition) && Enum.TryParse<TablePosition>(SelectedPosition, out var p))
             posFilter = p;
 
-        Cells = MatrixAggregator.BuildMatrix(all, posFilter);
-        TotalSamples = all.Count;
+        var filtered = new ResultFilter(posFilter, SelectedPhase, SelectedSession, SelectedRange).Apply(all);
+        Cells = MatrixAggregator.BuildMatrix(filtered);
+        TotalSamples = filtered.Count;
     }
 
     public double GetIntensity(MatrixCell cell)
@@ -65,6 +73,6 @@ public class EWMatrixModel : PageModel
     {
         if (cell.TotalSamples == 0) return "—";
         var val = cell.AvgExpectedValue;
-        return val >= 0 ? $"+{val:F2}" : $"{val:F2}";
+        return (val >= 0 ? $"+{val:F2}" : $"{val:F2}") + (cell.LowSample ? " *" : "");
     }
 }

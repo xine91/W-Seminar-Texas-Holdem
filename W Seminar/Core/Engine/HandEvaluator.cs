@@ -92,6 +92,97 @@ public static class HandEvaluator
         return (category, tiebreakers);
     }
 
+    /// <summary>
+    /// Schneller, allokationsfreier Evaluator für 5-7 Karten (Bitmasken + Rang-Zähler).
+    /// Liefert einen Integer-Score: höherer Score = stärkere Hand. Kategorie in den Bits ab 20,
+    /// darunter die Tiebreaker als 4-Bit-Nibbles. Ergebnis ist ordnungsäquivalent zu
+    /// <see cref="EvaluateBest5Of7"/>/<see cref="Compare"/> (per Test abgesichert).
+    /// </summary>
+    public static int Score(ReadOnlySpan<Card> cards)
+    {
+        if (cards.Length < 5 || cards.Length > 7)
+            throw new ArgumentException("5 bis 7 Karten erforderlich.", nameof(cards));
+
+        Span<int> rankCount = stackalloc int[15];
+        Span<int> suitMask = stackalloc int[4];
+        Span<int> suitCount = stackalloc int[4];
+        int allMask = 0;
+
+        foreach (var c in cards)
+        {
+            rankCount[c.Rank]++;
+            suitMask[c.Suit] |= 1 << c.Rank;
+            suitCount[c.Suit]++;
+            allMask |= 1 << c.Rank;
+        }
+
+        int flushSuit = -1;
+        for (int s = 0; s < 4; s++)
+            if (suitCount[s] >= 5) { flushSuit = s; break; }
+
+        if (flushSuit >= 0)
+        {
+            int sfHigh = StraightHigh(suitMask[flushSuit]);
+            if (sfHigh > 0) return (8 << 20) | sfHigh;
+        }
+
+        int quad = 0, trips1 = 0, trips2 = 0, pair1 = 0, pair2 = 0;
+        for (int r = 14; r >= 2; r--)
+        {
+            int n = rankCount[r];
+            if (n == 4) quad = r;
+            else if (n == 3) { if (trips1 == 0) trips1 = r; else trips2 = r; }
+            else if (n == 2) { if (pair1 == 0) pair1 = r; else if (pair2 == 0) pair2 = r; }
+        }
+
+        if (quad > 0)
+            return (7 << 20) | (quad << 4) | PackTop(allMask & ~(1 << quad), 1);
+
+        if (trips1 > 0 && (trips2 > 0 || pair1 > 0))
+            return (6 << 20) | (trips1 << 4) | Math.Max(trips2, pair1);
+
+        if (flushSuit >= 0)
+            return (5 << 20) | PackTop(suitMask[flushSuit], 5);
+
+        int straightHigh = StraightHigh(allMask);
+        if (straightHigh > 0) return (4 << 20) | straightHigh;
+
+        if (trips1 > 0)
+            return (3 << 20) | (trips1 << 8) | PackTop(allMask & ~(1 << trips1), 2);
+
+        if (pair1 > 0 && pair2 > 0)
+            return (2 << 20) | (pair1 << 8) | (pair2 << 4) | PackTop(allMask & ~(1 << pair1) & ~(1 << pair2), 1);
+
+        if (pair1 > 0)
+            return (1 << 20) | (pair1 << 12) | PackTop(allMask & ~(1 << pair1), 3);
+
+        return PackTop(allMask, 5);
+    }
+
+    private static int StraightHigh(int mask)
+    {
+        if ((mask & (1 << 14)) != 0) mask |= 1 << 1; // Ass auch als 1 (Wheel)
+        for (int high = 14; high >= 5; high--)
+        {
+            int need = 0x1F << (high - 4);
+            if ((mask & need) == need) return high;
+        }
+        return 0;
+    }
+
+    private static int PackTop(int mask, int count)
+    {
+        int packed = 0, taken = 0;
+        for (int r = 14; r >= 2 && taken < count; r--)
+        {
+            if ((mask & (1 << r)) == 0) continue;
+            packed = (packed << 4) | r;
+            taken++;
+        }
+        for (; taken < count; taken++) packed <<= 4;
+        return packed;
+    }
+
     private static int[] BuildTiebreakers(HandRank category, int[] rankKeysDesc, bool isWheel)
     {
         // Reihenfolge: highest relevant ranks zuerst
