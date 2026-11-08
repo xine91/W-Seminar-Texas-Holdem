@@ -10,7 +10,7 @@ Das .NET 10 Framework muss installiert sein (https://dotnet.microsoft.com/downlo
 
 Visual Studio installieren(https://visualstudio.microsoft.com/de/) und während der Installation die Workloads „Web Razor Pages“ und „.NET“ auswählen.
 
-Das Repository über den Link ... herunterladen.
+Das Repository über diesen Link herunterladen.
 
 In Visual Studio das Repository öffnen und W-Seminar als „Startprojekt“ auswählen und die Simulation starten.
 
