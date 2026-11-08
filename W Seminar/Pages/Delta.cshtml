@@ -1,0 +1,143 @@
+@page "/delta"
+@model W_Seminar.Pages.DeltaModel
+@{
+    ViewData["Title"] = "Delta";
+}
+
+<div class="container-fluid py-4">
+    <h1>Delta-Analyse: Nash vs. Simulation</h1>
+    <p class="text-muted">
+        Vergleich pro Hand (169 Hände) für Szenario B nach Aktion und EV.
+    </p>
+
+    <form method="get" class="row g-2 align-items-end mb-3">
+        <div class="col-auto">
+            <label asp-for="SelectedStack" class="form-label">Stack (bb)</label>
+            <select asp-for="SelectedStack" class="form-select" onchange="this.form.elements['SelectedRunId'].value=''; this.form.submit()">
+                @foreach (var stack in Model.AvailableStacks)
+                {
+                    <option value="@stack">@stack</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <label asp-for="SelectedRunId" class="form-label">Run</label>
+            <select asp-for="SelectedRunId" class="form-select" onchange="this.form.submit()">
+                <option value="">Neuester Run für Stack</option>
+                @foreach (var run in Model.AvailableRuns)
+                {
+                    <option value="@run.RunId">@Model.FormatTimestamp(run.TimestampUtc) – @run.RunId[..Math.Min(8, run.RunId.Length)]</option>
+                }
+            </select>
+        </div>
+    </form>
+
+    @if (Model.ErrorMessage is { } error)
+    {
+        <div class="alert alert-danger">@error</div>
+    }
+    else if (!Model.AvailableStacks.Any())
+    {
+        <div class="alert alert-warning">Keine Szenario-B-Runs mit Stack gefunden.</div>
+    }
+    else if (Model.SelectedRecord is null)
+    {
+        <div class="alert alert-warning">Für diesen Stack ist kein passender Run verfügbar.</div>
+    }
+    else
+    {
+        <div class="row g-3 mb-3">
+            <div class="col-auto"><span class="badge bg-secondary">Stack: @Model.SelectedStack bb</span></div>
+            <div class="col-auto"><span class="badge bg-secondary">Run: @Model.SelectedRecord.RunId[..Math.Min(8, Model.SelectedRecord.RunId.Length)]</span></div>
+            <div class="col-auto"><span class="badge bg-success">SB Match: @Model.SbMatchCount / 169</span></div>
+            <div class="col-auto"><span class="badge bg-success">BB Match: @Model.BbMatchCount / 169</span></div>
+        </div>
+
+        <h2 class="h5">SB: Nash Push/Fold vs. Simulation</h2>
+        <div class="table-responsive mb-4">
+            <table class="table table-sm table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Hand</th>
+                        <th>Nash</th>
+                        <th>Simulation</th>
+                        <th>Match</th>
+                        <th>EV Sim (bb)</th>
+                        <th>ΔEV zu Nash (bb)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model.SbRows)
+                    {
+                        <tr>
+                            <td><code>@row.Hand</code></td>
+                            <td>@row.NashAction</td>
+                            <td>@row.SimulationAction</td>
+                            <td>
+                                @if (row.ActionMatch)
+                                {
+                                    <span class="badge bg-success">Match</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Diff</span>
+                                }
+                            </td>
+                            <td>@row.SimulationEv.ToString("+0.000;-0.000;0.000")</td>
+                            <td>@row.DeltaEvToNash.ToString("+0.000;-0.000;0.000")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="h5">BB: Nash Call/Fold vs. Simulation</h2>
+        @if (!Model.HasBbAnalysis)
+        {
+            <div class="alert alert-warning">Für den gewählten Run sind keine BB-Zellen gespeichert.</div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-sm table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th>Hand</th>
+                            <th>Nash</th>
+                            <th>Simulation</th>
+                            <th>Match</th>
+                            <th>EV Sim (bb)</th>
+                            <th>ΔEV zu Nash (bb)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in Model.BbRows)
+                        {
+                            <tr>
+                                <td><code>@row.Hand</code></td>
+                                <td>@row.NashAction</td>
+                                <td>@row.SimulationAction</td>
+                                <td>
+                                    @if (row.ActionMatch)
+                                    {
+                                        <span class="badge bg-success">Match</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Diff</span>
+                                    }
+                                </td>
+                                <td>@row.SimulationEv.ToString("+0.000;-0.000;0.000")</td>
+                                <td>@row.DeltaEvToNash.ToString("+0.000;-0.000;0.000")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        <small class="text-muted d-block mt-3">
+            ΔEV zu Nash: positiv = EV unterstützt Nash-Empfehlung, negativ = EV spricht dagegen.
+        </small>
+    }
+</div>

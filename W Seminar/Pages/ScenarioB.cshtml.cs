@@ -99,7 +99,7 @@ public class ScenarioBModel : PageModel
         [Range(50000, 200000)]
         public int Iterations { get; set; } = 50000;
 
-        [Range(1, 100)]
+        [Range(1, 300)]
         public int MaxSteps { get; set; } = 50;
 
         public int? Seed { get; set; } = 7;

@@ -24,16 +24,16 @@
                 </div>
                 <div class="mb-3">
                     <label asp-for="Input.Stack" class="form-label">Effektiver Stack S (bb)</label>
-                    <input asp-for="Input.Stack" type="number" step="1" min="1" max="1000" class="form-control" />
+                    <input asp-for="Input.Stack" type="number" step="1" min="1" max="10000" class="form-control" />
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label asp-for="Input.Iterations" class="form-label">Monte-Carlo-Iterationen</label>
-                        <input asp-for="Input.Iterations" type="number" min="50000" max="200000" step="1" class="form-control" />
+                        <input asp-for="Input.Iterations" type="number" min="50000" max="2000000" step="1" class="form-control" />
                     </div>
                 <div class="mb-3">
                     <label asp-for="Input.MaxSteps" class="form-label">Maximale Best-Response-Schritte</label>
-                    <input asp-for="Input.MaxSteps" type="number" min="1" max="100" step="1" class="form-control" />
+                    <input asp-for="Input.MaxSteps" type="number" min="1" max="300" step="1" class="form-control" />
                 </div>
                     <div class="col-md-6 mb-3">
                         <label asp-for="Input.Seed" class="form-label">Seed</label>

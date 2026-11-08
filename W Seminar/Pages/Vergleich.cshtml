@@ -1,0 +1,193 @@
+@page "/vergleich"
+@model W_Seminar.Pages.VergleichModel
+@{
+    ViewData["Title"] = "Vergleich";
+}
+
+<div class="container-fluid py-4">
+    <h1>Vergleich: Nash vs. Simulation</h1>
+    <p class="text-muted">
+        Vergleich von vier 13×13-Matrizen für Szenario B (Push/Fold):
+        Nash SB/BB aus <code>chen_ankenman_jamfold_SB_BB.json</code> und
+        gespeicherte Simulation aus <code>scenario_results.json</code>.
+    </p>
+
+    <form method="get" class="row g-2 align-items-end mb-3">
+        <div class="col-auto">
+            <label asp-for="SelectedStack" class="form-label">Stack (bb)</label>
+            <select asp-for="SelectedStack" class="form-select" onchange="this.form.submit()">
+                @foreach (var stack in Model.AvailableStacks)
+                {
+                    <option value="@stack">@stack</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <span class="badge bg-secondary">Run: @(Model.SelectedSimulationRecord?.RunId[..Math.Min(8, Model.SelectedSimulationRecord.RunId.Length)] ?? "—")</span>
+        </div>
+        <div class="col-auto">
+            <span class="badge bg-secondary">Zeit: @(Model.SelectedSimulationRecord is null ? "—" : Model.FormatTimestamp(Model.SelectedSimulationRecord.TimestampUtc))</span>
+        </div>
+    </form>
+
+    @if (Model.ErrorMessage is { } error)
+    {
+        <div class="alert alert-danger">@error</div>
+    }
+    else if (!Model.AvailableStacks.Any())
+    {
+        <div class="alert alert-warning">Keine Szenario-B-Simulationen mit Stack gefunden.</div>
+    }
+    else
+    {
+        <div class="row g-4">
+            <div class="col-12 col-xxl-6">
+                <h2 class="h5">Nash: SB Push/Fold (@Model.SelectedStack bb)</h2>
+                <div class="matrix-wrapper">
+                    <table class="poker-matrix">
+                        <thead>
+                        <tr>
+                            <th class="corner"></th>
+                            @foreach (var rank in Model.Ranks)
+                            {
+                                <th class="rank-header">@rank</th>
+                            }
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @for (int row = 0; row < 13; row++)
+                        {
+                            <tr>
+                                <th class="rank-header">@Model.Ranks[row]</th>
+                                @for (int column = 0; column < 13; column++)
+                                {
+                                    var cell = Model.NashSbCells[row, column];
+                                    <td class="@Model.GetCellCssClass(cell.Action)" style="background-color: rgb(@Model.GetActionColorRgb(cell.Action))" title="@cell.Hand">
+                                        <div class="cell-hand">@cell.Hand</div>
+                                        <div class="cell-value">@cell.Action</div>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-12 col-xxl-6">
+                <h2 class="h5">Nash: BB Call/Fold (@Model.SelectedStack bb)</h2>
+                <div class="matrix-wrapper">
+                    <table class="poker-matrix">
+                        <thead>
+                        <tr>
+                            <th class="corner"></th>
+                            @foreach (var rank in Model.Ranks)
+                            {
+                                <th class="rank-header">@rank</th>
+                            }
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @for (int row = 0; row < 13; row++)
+                        {
+                            <tr>
+                                <th class="rank-header">@Model.Ranks[row]</th>
+                                @for (int column = 0; column < 13; column++)
+                                {
+                                    var cell = Model.NashBbCells[row, column];
+                                    <td class="@Model.GetCellCssClass(cell.Action)" style="background-color: rgb(@Model.GetActionColorRgb(cell.Action))" title="@cell.Hand">
+                                        <div class="cell-hand">@cell.Hand</div>
+                                        <div class="cell-value">@cell.Action</div>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-12 col-xxl-6">
+                <h2 class="h5">Simulation: SB Push/Fold (@Model.SelectedStack bb)</h2>
+                @if (Model.SimulationSbCells is null)
+                {
+                    <div class="alert alert-warning">Für diesen Stack wurde keine passende Simulation gefunden.</div>
+                }
+                else
+                {
+                    <div class="matrix-wrapper">
+                        <table class="poker-matrix">
+                            <thead>
+                            <tr>
+                                <th class="corner"></th>
+                                @foreach (var rank in Model.Ranks)
+                                {
+                                    <th class="rank-header">@rank</th>
+                                }
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @for (int row = 0; row < 13; row++)
+                            {
+                                <tr>
+                                    <th class="rank-header">@Model.Ranks[row]</th>
+                                    @for (int column = 0; column < 13; column++)
+                                    {
+                                        var cell = Model.SimulationSbCells[row, column];
+                                        <td class="@Model.GetCellCssClass(cell.HeroAction)" style="background-color: rgb(@Model.GetActionColorRgb(cell.HeroAction))" title="@cell.Hand: Eq=@cell.Equity.ToString("P1"), EV=@cell.Ev.ToString("F2") bb">
+                                            <div class="cell-hand">@cell.Hand</div>
+                                            <div class="cell-value">@cell.HeroAction</div>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+
+            <div class="col-12 col-xxl-6">
+                <h2 class="h5">Simulation: BB Call/Fold (@Model.SelectedStack bb)</h2>
+                @if (Model.SimulationBbCells is null)
+                {
+                    <div class="alert alert-warning">Für den gewählten Run ist keine BB-Matrix (BbCells) vorhanden.</div>
+                }
+                else
+                {
+                    <div class="matrix-wrapper">
+                        <table class="poker-matrix">
+                            <thead>
+                            <tr>
+                                <th class="corner"></th>
+                                @foreach (var rank in Model.Ranks)
+                                {
+                                    <th class="rank-header">@rank</th>
+                                }
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @for (int row = 0; row < 13; row++)
+                            {
+                                <tr>
+                                    <th class="rank-header">@Model.Ranks[row]</th>
+                                    @for (int column = 0; column < 13; column++)
+                                    {
+                                        var cell = Model.SimulationBbCells[row, column];
+                                        <td class="@Model.GetCellCssClass(cell.HeroAction)" style="background-color: rgb(@Model.GetActionColorRgb(cell.HeroAction))" title="@cell.Hand: Eq=@cell.Equity.ToString("P1"), EV=@cell.Ev.ToString("F2") bb">
+                                            <div class="cell-hand">@cell.Hand</div>
+                                            <div class="cell-value">@cell.HeroAction</div>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <small class="text-muted d-block mt-3">Grün = aktive Aktion (Push/Call), Rot = Fold.</small>
+    }
+</div>
